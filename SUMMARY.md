@@ -2,9 +2,9 @@
 
 * [Learn](README.md)
   * [Introduction](learn/intro/README.md)
+    * [Obol Collective](learn/intro/obol-collective.md)
     * [Key Staking Concepts](learn/intro/key-concepts.md)
     * [DV Launchpad](learn/intro/launchpad.md)
-    * [Obol Collective](learn/intro/obol-collective.md)
     * [Obol vs Other DV Implementations](learn/intro/obol-vs-others.md)
   * [Charon](learn/charon/README.md)
     * [CLI Reference](learn/charon/charon-cli-reference.md)
