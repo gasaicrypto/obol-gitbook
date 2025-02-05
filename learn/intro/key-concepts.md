@@ -8,7 +8,7 @@ This page outlines a number of the key concepts behind the various technologies 
 
 ## Distributed validator
 
-![A Distributed Validator](../../img/32Eth.png)
+<figure><img src="../../.gitbook/assets/DVCluster.png" alt=""><figcaption></figcaption></figure>
 
 A distributed validator is an Ethereum proof-of-stake validator that runs on more than one node/machine. This functionality is possible with the use of **Distributed Validator Technology** (DVT).
 
