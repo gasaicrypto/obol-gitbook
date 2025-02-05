@@ -9,11 +9,9 @@ description: The Obol Collective
 
 The Obol Collective is the largest Decentralized Operator Ecosystem. We provides the technology, opportunities, and community to scale decentralized infrastructure networks. The list of Obol Collective participants includes 50+ staking protocols, client teams, software tools, education & community projects, professional node operators, home operators, and stakers, including names like EigenLayer, Lido, EtherFi, Figment, Bitcoin Suisse, Stakewise, Nethermind, Blockdaemon, Chorus One, DappNode, and many more. Learn more at [Obol.org](https://obol.org).
 
-Test image&#x20;
+Obol vs others table&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-02-05 at 13.09.07.png" alt=""><figcaption></figcaption></figure>
-
-![Obol vs others table](../../img/DecentralizedOperatorEcosystem.png)
+<figure><img src="../../.gitbook/assets/DecentralizedOperatorEcosystem.png" alt=""><figcaption></figcaption></figure>
 
 ## Scaling Infrastructure Networks
 
