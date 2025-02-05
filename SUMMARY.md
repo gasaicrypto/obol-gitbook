@@ -3,6 +3,7 @@
 ## Learn
 
 * [Introduction](README.md)
+  * [Obol Splits](learn/intro/obol-splits.md)
   * [Obol Collective](learn/intro/obol-collective.md)
   * [Key Staking Concepts](learn/intro/key-concepts.md)
   * [DV Launchpad](learn/intro/launchpad.md)
