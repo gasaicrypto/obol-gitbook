@@ -5,22 +5,20 @@ description: Migrate an existing validator by splitting its private key into sha
 
 # Migrate an Existing Validator
 
-:::warning
-This process should only be used if you want to split an *existing validator private key* into multiple private key shares for use in a Distributed Validator Cluster. **If your existing validator is not properly shut down before the Distributed Validator starts, your validator may be slashed**.
+:::warning This process should only be used if you want to split an _existing validator private key_ into multiple private key shares for use in a Distributed Validator Cluster. **If your existing validator is not properly shut down before the Distributed Validator starts, your validator may be slashed**.
 
-If you are starting a new validator, you should follow a [quickstart guide](../../run/start/quickstart_overview.md) instead.
-:::
+If you are starting a new validator, you should follow a [quickstart guide](../../run/start/quickstart_overview.md) instead. :::
 
-Split an existing Ethereum validator key into multiple key shares for use in an [Obol Distributed Validator Cluster](../../learn/intro/key-concepts.md#distributed-validator-cluster).
+Split an existing Ethereum validator key into multiple key shares for use in an [Obol Distributed Validator Cluster](../../group-1/learn-group/intro/key-concepts.md#distributed-validator-cluster).
 
 ## Pre-requisites
 
-- Ensure you have the existing validator keystores (the ones to split) and passwords.
-- Ensure you have [docker](https://docs.docker.com/engine/install/) installed.
-- Make sure `docker` is running before executing the commands below.
-- If you use MEV-Boost, you must either:
-    - Turn off your MEV-Boost client before you split your keys, or;
-    - Temporarily use a relay you won't be using when running the Distributed Validator; to prevent registering for MEV with a timestamp more recent than the one Charon prepares at the moment of key splitting.
+* Ensure you have the existing validator keystores (the ones to split) and passwords.
+* Ensure you have [docker](https://docs.docker.com/engine/install/) installed.
+* Make sure `docker` is running before executing the commands below.
+* If you use MEV-Boost, you must either:
+  * Turn off your MEV-Boost client before you split your keys, or;
+  * Temporarily use a relay you won't be using when running the Distributed Validator; to prevent registering for MEV with a timestamp more recent than the one Charon prepares at the moment of key splitting.
 
 ## Step 1. Prepare the existing keystore files
 
@@ -94,7 +92,7 @@ These split keys can now be used to start a Charon cluster.
 
 ## Step 3. (Optional) Encrypt artifacts for distribution
 
-Within each folder are the encrypted [private key shares](../../learn/intro/key-concepts.md#distributed-validator-key-share), along with the decryption passwords. To transmit these folders to the operators/machines where they will run, it might be prudent to encrypt the folder as a `.zip` to transport them.
+Within each folder are the encrypted [private key shares](../../group-1/learn-group/intro/key-concepts.md#distributed-validator-key-share), along with the decryption passwords. To transmit these folders to the operators/machines where they will run, it might be prudent to encrypt the folder as a `.zip` to transport them.
 
 ```shell
 # For each folder in ./cluster/ encrypt it with a different password

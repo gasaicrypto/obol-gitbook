@@ -1,12 +1,13 @@
 ---
 sidebar_position: 2
-description: DV Deployment best practices, for running an optimal Distributed Validator setup at scale.
+description: >-
+  DV Deployment best practices, for running an optimal Distributed Validator
+  setup at scale.
 ---
 
 # Deployment Best Practices
 
 The following are a selection of best practices for deploying Distributed Validator Clusters at scale on mainnet.
-
 
 ## Hardware Specifications
 
@@ -14,21 +15,21 @@ The following specifications are recommended for bare metal machines for cluster
 
 ### Minimum Specs
 
-- A CPU with 4+ cores, favouring high clock speed over more cores. ( >3.0GHz and higher or a cpubenchmark [single thread](https://www.cpubenchmark.net/singleThread.html) score of >2,500)
-- 16GB of RAM
-- 2TB+ free SSD disk space (for mainnet)
-- 1000 read/write SSD IOPS
-- 500MB/s read/write SSD speed
-- 10mb/s internet bandwidth
+* A CPU with 4+ cores, favouring high clock speed over more cores. ( >3.0GHz and higher or a cpubenchmark [single thread](https://www.cpubenchmark.net/singleThread.html) score of >2,500)
+* 16GB of RAM
+* 2TB+ free SSD disk space (for mainnet)
+* 1000 read/write SSD IOPS
+* 500MB/s read/write SSD speed
+* 10mb/s internet bandwidth
 
 ### Recommended Specs for extremely large clusters
 
-- A CPU with 8+ physical cores, with clock speeds >3.5Ghz
-- 32GB+ RAM (depending on the EL+CL clients)
-- 4TB+ NVMe storage
-- 2000 read/write SSD IOPS
-- 1000MB/s read/write SSD speed
-- 25mb/s internet bandwidth
+* A CPU with 8+ physical cores, with clock speeds >3.5Ghz
+* 32GB+ RAM (depending on the EL+CL clients)
+* 4TB+ NVMe storage
+* 2000 read/write SSD IOPS
+* 1000MB/s read/write SSD speed
+* 25mb/s internet bandwidth
 
 An NVMe storage device is **highly recommended for optimal performance**, offering nearly 10x more random read/writes per second than a standard SSD.
 
@@ -44,7 +45,7 @@ It is recommended to **keep peer ping latency below 235 milliseconds for all pee
 
 In cases where latencies exceed these thresholds, efforts should be made to reduce the physical distance between nodes or optimize Internet Service Provider (ISP) settings accordingly. Ensure all nodes are connecting to one another directly rather than through a relay.
 
-For high-scale, performance deployments; inter-peer latency of &lt; 25ms is optimal, along with an average consensus duration under 100ms.
+For high-scale, performance deployments; inter-peer latency of < 25ms is optimal, along with an average consensus duration under 100ms.
 
 ## Node Locations
 
@@ -52,7 +53,7 @@ For optimal performance and high availability, it is recommended to provision ma
 
 ## Peer Connections
 
-Charon clients can establish connections with one another in two ways: either through a third publicly accessible server known as [a relay](../../learn/charon/charon-cli-reference.md#host-a-relay) or directly with one another if they can establish a connection. The former is known as a relay connection and the latter is known as a direct connection.
+Charon clients can establish connections with one another in two ways: either through a third publicly accessible server known as [a relay](../../group-1/learn-group/charon/charon-cli-reference.md#host-a-relay) or directly with one another if they can establish a connection. The former is known as a relay connection and the latter is known as a direct connection.
 
 It is important that all nodes in a cluster be directly connected to one another - this can halve the latency between them and reduces bandwidth constraints significantly. Opening Charon’s p2p port (the default is `3610`) to the Internet, or configuring your routers NAT gateway to permit connections to your Charon client, are what are required to facilitate a direct connection between clients.
 
@@ -62,17 +63,17 @@ Each node in the cluster should have its own independent beacon node (EL+CL) and
 
 ## Placement of Charon clients
 
-If you wish to divide a Distributed Validator node across multiple physical or virtual machines; locate the Charon client on the EL/CL machine instead of the VC machine. This setup reduces latency from Charon to the consensus layer, as well as keeping the public-internet connected clients separate from the clients that hold the validator private keys. Be sure to use encrypted communication between your VC and the Charon client, potentially through a cloud-provided network, a self-managed network tunnel, a VPN, a Kubernetes [CNI](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/), or other manner. 
+If you wish to divide a Distributed Validator node across multiple physical or virtual machines; locate the Charon client on the EL/CL machine instead of the VC machine. This setup reduces latency from Charon to the consensus layer, as well as keeping the public-internet connected clients separate from the clients that hold the validator private keys. Be sure to use encrypted communication between your VC and the Charon client, potentially through a cloud-provided network, a self-managed network tunnel, a VPN, a Kubernetes [CNI](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/), or other manner.
 
 ## Node Configuration
 
-Cluster sizes that allow for Byzantine Fault Tolerance are recommended as they are safer than clusters with simply Crash Fault Tolerance (See this guide for reference - [Cluster Size and Resilience](../../learn/charon/cluster-configuration#cluster-size-and-resilience)).
+Cluster sizes that allow for Byzantine Fault Tolerance are recommended as they are safer than clusters with simply Crash Fault Tolerance (See this guide for reference - [Cluster Size and Resilience](../../learn/charon/cluster-configuration/#cluster-size-and-resilience)).
 
 ## MEV-Boost Relays
 
-MEV relays are configured at the Consensus Layer or MEV-boost client level. Refer to our [guide](../../adv/advanced/quickstart-builder-api.mdx) to ensure all necessary configuration has been applied to your clients. As with all validators, low latency during proposal opportunities is extremely important. By default, MEV-Boost waits for all configured relays to return a bid, or will timeout if any have not returned a bid within 950ms. This default timeout is generally too slow for a distributed cluster (think of this time as additive to the time it takes the cluster to come to consensus, both of which need to happen within a 2 second window for optimal proposal broadcasting). It is likely better to only list relays that are located geographically near your node, so that once all relays respond (e.g. in &lt; 50ms) your cluster will move forward with the proposal.
+MEV relays are configured at the Consensus Layer or MEV-boost client level. Refer to our [guide](../../adv/advanced/quickstart-builder-api.mdx) to ensure all necessary configuration has been applied to your clients. As with all validators, low latency during proposal opportunities is extremely important. By default, MEV-Boost waits for all configured relays to return a bid, or will timeout if any have not returned a bid within 950ms. This default timeout is generally too slow for a distributed cluster (think of this time as additive to the time it takes the cluster to come to consensus, both of which need to happen within a 2 second window for optimal proposal broadcasting). It is likely better to only list relays that are located geographically near your node, so that once all relays respond (e.g. in < 50ms) your cluster will move forward with the proposal.
 
-Use Charon's [`test mev` command](../../run/prepare/test-command.mdx#test-mev-relay) to test a number of your preferred relays, and select the two or three relays with the lowest latency to your node(s), you do not need to have the same relays on each node in a cluster.
+Use Charon's [`test mev` command](test-command.mdx#test-mev-relay) to test a number of your preferred relays, and select the two or three relays with the lowest latency to your node(s), you do not need to have the same relays on each node in a cluster.
 
 ## Client Diversity
 
@@ -84,7 +85,7 @@ Tested client combinations can be found in the [release notes](https://github.co
 
 ## Metrics Monitoring
 
-As requested by Obol Labs, node operators can push [standard monitoring](../../run/start/obol-monitoring.md) (Prometheus) and logging (Loki) data to Obol Labs' core team's cloud infrastructure for in-depth analysis of performance data and to assist during potential issues that may arise. Our recommendation for operators is to independently store information on their node health over the course of the validator lifecycle as well as any information on validator performance that they collect during the normal life cycle of a validator.
+As requested by Obol Labs, node operators can push [standard monitoring](../start/obol-monitoring.md) (Prometheus) and logging (Loki) data to Obol Labs' core team's cloud infrastructure for in-depth analysis of performance data and to assist during potential issues that may arise. Our recommendation for operators is to independently store information on their node health over the course of the validator lifecycle as well as any information on validator performance that they collect during the normal life cycle of a validator.
 
 ## Obol Splits
 
@@ -94,8 +95,6 @@ Leveraging [Obol Splits](../../learn/intro/obol-splits.mdx) smart contracts allo
 
 Deposit processes can be done via an automated script. This can be used for DV clusters until they reach the desired number of validators.
 
-It is important to allow time for the validators to be activated (usually &lt; 24 hours).
+It is important to allow time for the validators to be activated (usually < 24 hours).
 
 Consider using batching smart contracts to reduce the gas cost of a script, but take caution in their integration not to make an invalid deposit.
-
-
