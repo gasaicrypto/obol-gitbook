@@ -1,6 +1,11 @@
 # Table of contents
 
 * [Learn](README.md)
+  * [Introduction](learn/intro/README.md)
+    * [Key Staking Concepts](learn/intro/key-concepts.md)
+    * [DV Launchpad](learn/intro/launchpad.md)
+    * [Obol Collective](learn/intro/obol-collective.md)
+    * [Obol vs Other DV Implementations](learn/intro/obol-vs-others.md)
   * [Charon](learn/charon/README.md)
     * [CLI Reference](learn/charon/charon-cli-reference.md)
     * [Cluster Configuration](learn/charon/cluster-configuration.md)
@@ -11,11 +16,6 @@
     * [Peer Score](learn/futher-reading/peer_score.md)
     * [Useful Links](learn/futher-reading/resources.md)
     * [testnet](learn/futher-reading/testnet.md)
-  * [Introduction](learn/intro/README.md)
-    * [Key Staking Concepts](learn/intro/key-concepts.md)
-    * [DV Launchpad](learn/intro/launchpad.md)
-    * [Obol Collective](learn/intro/obol-collective.md)
-    * [Obol vs Other DV Implementations](learn/intro/obol-vs-others.md)
 * [Run a DV](run/README.md)
   * [integrations](run/integrations/README.md)
     * [Create a Lido CSM DV](run/integrations/lido-csm.md)
