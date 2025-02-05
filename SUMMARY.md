@@ -1,6 +1,7 @@
 # Table of contents
 
-* [Learn](README.md)
+* [TEST SECTION DIVIDER](README.md)
+* [Learn](<README (1).md>)
   * [Introduction](learn/intro/README.md)
     * [Obol Collective](learn/intro/obol-collective.md)
     * [Key Staking Concepts](learn/intro/key-concepts.md)
