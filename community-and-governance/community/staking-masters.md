@@ -1,6 +1,6 @@
 ---
-description: Information about the Staking Mastery Program
 sidebar_position: 1
+description: Information about the Staking Mastery Program
 ---
 
 # Staking Mastery Program
@@ -9,13 +9,14 @@ Information about the Staking Mastery Program can be found at https://squadstaki
 
 ## Achieving staking mastery
 
-The Staking Mastery program is a carefully curated cohort based program designed to empower and promote individuals who are passionate about advancing staking adoption through research, development and/or education.
+The Staking Mastery program is a carefully curated cohort based program designed to empower and promote individuals who are passionate about advancing staking adoption through research, development and/or education.\
 
-![Staking Master](/img/StakingMaster.png)
+
+<figure><img src="../../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 
 In ancient Greece, masters were esteemed for their expertise and their role as mentors. A master would guide an apprentice through rigorous training and intellectual development. They often performed research, led workshops, or built entire guilds. This master-apprentice relationship was fundamental to the transmission of skills and knowledge in ancient Greek society.
 
-We're empowering the next generation of masters, the Ethereum Staking Masters. 
+We're empowering the next generation of masters, the Ethereum Staking Masters.
 
 ## How does it work?
 

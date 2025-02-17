@@ -40,7 +40,7 @@ In our mission to help make Ethereum consensus more resilient and decentralised 
 
 [**Read More About The Performance Test Results Here**](https://blog.obol.tech/performance-testing-distributed-validators/)
 
-![Image Alt Text](../../img/MigaLabs-Performance-Results.png)
+<figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 ### More Resources
 

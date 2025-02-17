@@ -3,7 +3,7 @@ sidebar_position: 5
 description: Software Development Security Assessment
 ---
 
-# ev-assessment
+# Software Development at Obol
 
 ## Software Development at Obol
 
@@ -203,9 +203,8 @@ During setup, users should only sign one transaction via the Launchpad - to a co
 Rather than using an NPM library to supply a factory address or JSON artifacts, this has the benefit of being both:
 
 * **Harder to compromise:** as long as the user knows launchpad.obol.eth, it’s pretty difficult to trick them into deploying the wrong contracts.
-* **Easier to validate** for non-technical users: the Obol contract can be queried for deployment information via etherscan. For example:
-
-![Etherscan Contract View Screenshot](../../img/EtherscanContractView.png)
+* **Easier to validate** for non-technical users: the Obol contract can be queried for deployment information via etherscan. For example:\
+  ![](<../../.gitbook/assets/image (50).png>)
 
 Note that in order for this to be successful, Obol needs to provide detailed steps for users to perform manual validation of their cluster setups. Users should be able to treat this as a “checklist:”
 

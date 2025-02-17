@@ -8,8 +8,7 @@ This document describes Charon's networking model which can be divided into two 
 
 ### Internal Validator Stack[​](https://docs.obol.org/learn/charon/networking#internal-validator-stack) <a href="#internal-validator-stack" id="internal-validator-stack"></a>
 
-![Internal Validator Stack](https://docs.obol.org/img/InternalValidatorStack.png)\
-
+<figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
 Charon is a middleware DVT client and is therefore connected to an upstream beacon node and a downstream validator client is connected to it. Each operator should run the whole validator stack (all 4 client software types), either on the same machine or on different machines. The networking between the nodes should be private and not exposed to the public internet.
 
@@ -20,7 +19,9 @@ Related Charon configuration flags:
 
 ### External P2P Network[​](https://docs.obol.org/learn/charon/networking#external-p2p-network) <a href="#external-p2p-network" id="external-p2p-network"></a>
 
-![External P2P Network](https://docs.obol.org/assets/images/ExternalP2PNetwork-37e54ca010415d35ddcc5b8e5dee3aec.png) The Charon clients in a DV cluster are connected to each other via a small p2p network consisting of only the clients in the cluster. Peer IP addresses are discovered via an external "relay" server. The p2p connections are over the public internet so the Charon p2p port must be publicly accessible. Charon leverages the popular [libp2p](https://libp2p.io/) protocol.
+<figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+
+The Charon clients in a DV cluster are connected to each other via a small p2p network consisting of only the clients in the cluster. Peer IP addresses are discovered via an external "relay" server. The p2p connections are over the public internet so the Charon p2p port must be publicly accessible. Charon leverages the popular [libp2p](https://libp2p.io/) protocol.
 
 Related [Charon configuration flags](https://docs.obol.org/learn/charon/charon-cli-reference):
 
@@ -32,7 +33,7 @@ Related [Charon configuration flags](https://docs.obol.org/learn/charon/charon-c
 
 Each Charon client has a secp256k1 private key. The associated public key is encoded into the [cluster lock file](https://docs.obol.org/learn/charon/cluster-configuration#cluster-lock-file) to identify the nodes in the cluster. For ease of use and to align with the Ethereum ecosystem, Charon encodes these public keys in the [ENR format](https://eips.ethereum.org/EIPS/eip-778), not in [libp2p’s Peer ID format](https://docs.libp2p.io/concepts/fundamentals/peers/).
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 Each Charon node's secp256k1 private key is critical for authentication and must be kept secure to prevent cluster compromise.
 
 Do not use the same key across multiple clusters, as this can lead to security issues.
@@ -57,7 +58,7 @@ Libp2p’s [identify](https://docs.libp2p.io/concepts/fundamentals/protocols/#id
 * `--p2p-external-ip`: Explicitly sets the external IP address.
 * `--p2p-external-hostname`: Explicitly sets the external DNS host name.
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 If a pair of Charon clients are not publicly accessible, due to being behind a NAT, they will not be able to upgrade their relay connections to a direct connection. Even though this is supported, it isn’t recommended as relay connections introduce additional latency and reduced throughput and will result in decreased validator effectiveness and possible missed block proposals and attestations.
 {% endhint %}
 

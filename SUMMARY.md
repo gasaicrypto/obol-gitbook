@@ -48,6 +48,7 @@
 * [Advanced Guides](advanced-and-troubleshooting/advanced/README.md)
   * [Create a DV Using the SDK](advanced-and-troubleshooting/advanced/create-a-dv-using-the-sdk.md)
   * [Migrate an Existing Validator](advanced-and-troubleshooting/advanced/quickstart-split.md)
+  * [Enable MEV](advanced-and-troubleshooting/advanced/enable-mev.md)
   * [Combine DV Private Key Shares](advanced-and-troubleshooting/advanced/quickstart-combine.md)
   * [Self-Host a Relay](advanced-and-troubleshooting/advanced/self-relay.md)
   * [Advanced Docker Configs](advanced-and-troubleshooting/advanced/adv-docker-configs.md)

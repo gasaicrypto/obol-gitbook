@@ -2,11 +2,13 @@
 description: Community testing efforts
 ---
 
-# testnet
+# Community Testing
 
 ## Community Testing
 
-:::tip This page looks at the community testing efforts organised by Obol to test Distributed Validators at scale. If you are looking for guides to run a Distributed Validator on testnet you can do so [here](../../run-a-dv/start/quickstart_overview.md). :::
+{% hint style="success" %}
+This page looks at the community testing efforts organised by Obol to test Distributed Validators at scale. If you are looking for guides to run a Distributed Validator on testnet you can do so [here](../../run-a-dv/start/quickstart_overview.md).
+{% endhint %}
 
 Over the last number of years, DV Labs has coordinated and hosted progressively larger testing efforts to help harden the Charon client and iterate on the key generation tooling.
 

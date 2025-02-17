@@ -1,23 +1,25 @@
 ---
 sidebar_position: 4
-description: Combine distributed validator private key shares to recover the validator private key.
+description: >-
+  Combine distributed validator private key shares to recover the validator
+  private key.
 ---
 
 # Combine DV Private Key Shares
 
-:::danger
+{% hint style="danger" %}
 Reconstituting Distributed Validator private key shares into a standard validator private key is a security risk, and can potentially cause your validator to be slashed.
 
 Only combine private keys as a last resort and do so with extreme caution.
-:::
+{% endhint %}
 
 Combine distributed validator private key shares into an Ethereum validator private key.
 
 ## Pre-requisites
 
-- Ensure you have the `.charon` directories of at least a threshold of the cluster's node operators.
-- Ensure you have [docker](https://docs.docker.com/engine/install/) installed.
-- Make sure `docker` is running before executing the commands below.
+* Ensure you have the `.charon` directories of at least a threshold of the cluster's node operators.
+* Ensure you have [docker](https://docs.docker.com/engine/install/) installed.
+* Make sure `docker` is running before executing the commands below.
 
 ## Step 1. Set up the key combination directory tree
 
@@ -70,11 +72,11 @@ cluster/
         └── keystore-1.txt
 ```
 
-:::warning
+{% hint style="warning" %}
 Make sure to never mix the various `.charon` directories with one another.
 
 Doing so can potentially cause the combination process to fail.
-:::
+{% endhint %}
 
 ## Step 2. Combine the key shares
 
@@ -104,9 +106,8 @@ $ jq .distributed_validators[].distributed_public_key  cluster/node0/cluster-loc
 "0x8929b4c8af2d2eb222d377cac2aa7be950e71d2b247507d19b5fdec838f0fb045ea8910075f191fd468da4be29690106"
 ```
 
-:::info
-
+{% hint style="info" %}
 The generated private keys are in the standard [EIP-2335](https://github.com/ethereum/ercs/blob/master/ERCS/erc-2335.md) format, and can be imported in any Ethereum validator client that supports it.
 
 Ensure your distributed validator cluster is completely shut down before starting a replacement validator or you are likely to be slashed.
-:::
+{% endhint %}

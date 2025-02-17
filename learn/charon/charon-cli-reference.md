@@ -78,7 +78,9 @@ Flags:
 
 The `charon create cluster` command creates a set of distributed validators locally; including the private keys, a `cluster-lock.json` file, and deposit data. This command should only be used for solo-operation of distributed validators. To run a distributed validator cluster with a group of operators, it is preferable to create these artifacts using the [DV Launchpad](../intro/launchpad.md) and the `charon dkg` command. That way, no single operator custodies all of the private keys to a distributed validator.
 
-:::warning This command produces new distributed validator private keys or handles and splits pre-existing traditional validator private keys, please use caution and keep these private keys securely backed up and secret. :::
+{% hint style="warning" %}
+This command produces new distributed validator private keys or handles and splits pre-existing traditional validator private keys, please use caution and keep these private keys securely backed up and secret.
+{% endhint %}
 
 ```markdown
 charon create cluster --help
@@ -257,9 +259,11 @@ Use "charon exit [command] --help" for more information about a command.
 
 ### Pre-sign exit messages for active validators
 
-:::warning This command requires Charon to access the distributed validator's private keys, please use caution and keep these private keys securely backed up and secret.
+{% hint style="warning" %}
+This command requires Charon to access the distributed validator's private keys, please use caution and keep these private keys securely backed up and secret.
 
-The default `publish-address` for this command sends signed exit messages to Obol's [API](../../api/) for aggregation and distribution. Exit signatures are stored in line with Obol's [terms and contiditions](https://obol.tech/terms.pdf). :::
+The default `publish-address` for this command sends signed exit messages to Obol's [API](../../api/) for aggregation and distribution. Exit signatures are stored in line with Obol's [terms and contiditions](https://obol.tech/terms.pdf).
+{% endhint %}
 
 This command submits partial exit signatures to the remote API for aggregation. The required flags are `--beacon-node-url` and `--validator-public-key` of the validator you wish to exit. An exit message can only be signed for a validator that is fully deposited and assigned a validator index.
 
@@ -367,7 +371,9 @@ Flags:
 
 The `combine` command combines many validator key shares into a single Ethereum validator key.
 
-:::warning This command requires Charon to access the distributed validator's private keys, please use caution and keep these private keys securely backed up and secret. :::
+{% hint style="warning" %}
+This command requires Charon to access the distributed validator's private keys, please use caution and keep these private keys securely backed up and secret.
+{% endhint %}
 
 ```markdown
 charon combine --help
@@ -457,11 +463,11 @@ By default, the `combine` command will refuse to overwrite any private key that 
 
 To force the process, use the `--force` flag.
 
-:::danger
-
+{% hint style="danger" %}
 The generated private keys are in the standard [EIP-2335](https://github.com/ethereum/ercs/blob/master/ERCS/erc-2335.md) format, and can be imported in any Ethereum validator client that supports it.
 
-**Ensure your distributed validator cluster is completely shut down for at least two epochs before starting a replacement validator or you are likely to be slashed.** :::
+**Ensure your distributed validator cluster is completely shut down for at least two epochs before starting a replacement validator or you are likely to be slashed.**
+{% endhint %}
 
 ## Host a relay
 

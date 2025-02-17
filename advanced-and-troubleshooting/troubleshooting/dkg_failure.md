@@ -61,13 +61,13 @@ The `disallowed_entity` field lists all the files that Charon refuses to overwri
 
 In order to retry the DKG process one must delete the following entities, if present:
 
-- `validator_keys` directory
-- `cluster-lock.json` file
-- `deposit-data.json` file
+* `validator_keys` directory
+* `cluster-lock.json` file
+* `deposit-data.json` file
 
-:::warning
+{% hint style="warning" %}
 The `charon-enr-private-key` file **must be preserved**, failure to do so requires the DKG process to be restarted from the beginning by creating a new cluster definition.
-:::
+{% endhint %}
 
 If you're doing a DKG with a custom cluster definition - for example, create with `charon create dkg`, rather than the Obol Launchpad - you can re-use the same file.
 
@@ -79,7 +79,7 @@ If you are trying to create an extremely large, geographically diverse cluster, 
 
 If for some reason the DKG process still fails, node operators are advised to reach out to the Obol team by opening an [issue](https://github.com/ObolNetwork/charon/issues), detailing the troubleshooting steps that were taken and providing **debug logs**.
 
-To enable debug logs, first clean up the Charon data directory as explained in [the previous section](#cleaning-up-the-charon-directory), then run your DKG command while appending `--log-level=debug` at the end.
+To enable debug logs, first clean up the Charon data directory as explained in [the previous section](dkg_failure.md#cleaning-up-the-charon-directory), then run your DKG command while appending `--log-level=debug` at the end.
 
 In order for the Obol team to debug your issue as quickly and precisely as possible, please provide full logs in text form, not through screenshots or display photos.
 

@@ -11,14 +11,15 @@ Voting and funding distributions occur over a series of **Obol Retroactive Fund 
 
 ## Overview of the Obol RAF:
 
-- Any project that meets the RAF round’s criteria can make an application.
-- OBOL Token Delegates vote on applications proportional to their delegated power and using [quadratic funding](https://qf.gitcoin.co/).
-- The Obol RAF rounds occur at intervals and include phases for scoping, application creation, application review, voting, and funding distribution.
-- The Obol Association will collect information from projects to distribute grants, including KYC, where required.
+* Any project that meets the RAF round’s criteria can make an application.
+* OBOL Token Delegates vote on applications proportional to their delegated power and using [quadratic funding](https://qf.gitcoin.co/).
+* The Obol RAF rounds occur at intervals and include phases for scoping, application creation, application review, voting, and funding distribution.
+* The Obol Association will collect information from projects to distribute grants, including KYC, where required.
 
-Below is described the steps within each RAF round. Each step takes approximately one week. 
+Below is described the steps within each RAF round. Each step takes approximately one week.\
 
-![RAF Explainer](/img/RAFexplainer.png)
+
+<figure><img src="../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 1: Scoping
 
@@ -46,9 +47,9 @@ OBOL Delegates vote on projects in proportion to their voting power. Here’s ho
 1. **Eligibility:** Every address that has been delegated voting power by OBOL Token holders can submit votes.
 2. **Voting Process:** Delegates vote using the [raf.obol.org](http://raf.obol.org) app. Depending on the type of application being reviewed, a specific set of criteria should be used to judge a project's contributions to the Obol Collective.
 
-:::warning
+{% hint style="warning" %}
 The Obol Association will monitor votes to ensure contributors are not voting for projects they are directly involved in or where a substantial conflict of interest may be present. Delegates are expected to act in accordance with the Delegate [Rules of Engagement](https://community.obol.org/t/delegates-rules-of-engagement/206) and the general [Code of Conduct](https://community.obol.org/t/code-of-conduct-for-discussion-forum/205) for the forum.
-:::
+{% endhint %}
 
 ### Step 5: Tallying Results
 
@@ -68,4 +69,4 @@ After each round, The Obol Association will conduct a retrospective and gather c
 
 ## Guides for each Round
 
-RAF1: see the [RAF1 guide](https://community.obol.org/t/guide-for-raf-round-1-raf1/227) in the forum. 
+RAF1: see the [RAF1 guide](https://community.obol.org/t/guide-for-raf-round-1-raf1/227) in the forum.
