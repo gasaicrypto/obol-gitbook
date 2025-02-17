@@ -8,10 +8,12 @@
   * [Obol vs Other DV Implementations](learn/intro/obol-vs-others.md)
   * [Obol Splits](learn/intro/obol-splits.md)
   * [DV Launchpad](learn/intro/launchpad.md)
+  * [Frequently Asked Questions](learn/intro/frequently-asked-questions.md)
 * [Charon](learn/charon/README.md)
   * [Introduction to Charon](learn/charon/intro.md)
   * [Distributed Key Generation](learn/charon/dkg.md)
   * [Cluster Configuration](learn/charon/cluster-configuration.md)
+  * [Charon Networking](learn/charon/charon-networking.md)
   * [CLI Reference](learn/charon/charon-cli-reference.md)
 * [Futher Reading](learn/futher-reading/README.md)
   * [Ethereum and Its Relationship With DVT](learn/futher-reading/ethereum_and_dvt.md)
@@ -23,18 +25,28 @@
 
 * [Quickstart](run-a-dv/start/README.md)
   * [Quickstart Overview](run-a-dv/start/quickstart_overview.md)
+  * [Create a DV Alone](run-a-dv/start/create-a-dv-alone.md)
+  * [Create a DV With a Group](run-a-dv/start/create-a-dv-with-a-group.md)
   * [Push Metrics to Obol Monitoring](run-a-dv/start/obol-monitoring.md)
 * [Prepare to Run a DV](run-a-dv/prepare/README.md)
+  * [Test a Cluster](run-a-dv/prepare/test-a-cluster.md)
   * [How and Where To Run DVs](run-a-dv/prepare/how_where_dvs.md)
   * [Deployment Best Practices](run-a-dv/prepare/deployment-best-practices.md)
 * [Running a DV](run-a-dv/running/README.md)
+  * [Activate a DV](run-a-dv/running/activate-a-dv.md)
+  * [Update a DV](run-a-dv/running/update-a-dv.md)
   * [Monitoring Your Node](run-a-dv/running/monitoring.md)
+  * [Claim Rewards](run-a-dv/running/claim-rewards.md)
+  * [Exit a DV](run-a-dv/running/exit-a-dv.md)
 * [Partner Integrations](run-a-dv/integrations/README.md)
+  * [Create an EigenLayer DV](run-a-dv/integrations/create-an-eigenlayer-dv.md)
   * [Create a Lido CSM DV](run-a-dv/integrations/lido-csm.md)
+  * [DappNode](run-a-dv/integrations/dappnode.md)
 
 ## Advanced & Troubleshooting
 
 * [Advanced Guides](advanced-and-troubleshooting/advanced/README.md)
+  * [Create a DV Using the SDK](advanced-and-troubleshooting/advanced/create-a-dv-using-the-sdk.md)
   * [Migrate an Existing Validator](advanced-and-troubleshooting/advanced/quickstart-split.md)
   * [Combine DV Private Key Shares](advanced-and-troubleshooting/advanced/quickstart-combine.md)
   * [Self-Host a Relay](advanced-and-troubleshooting/advanced/self-relay.md)
@@ -51,6 +63,7 @@
   * [Software Development at Obol](advanced-and-troubleshooting/security/ev-assessment.md)
   * [Charon Threat Model](advanced-and-troubleshooting/security/threat_model.md)
   * [Contacts](advanced-and-troubleshooting/security/contact.md)
+  * [Smart Contract Audit](advanced-and-troubleshooting/security/smart-contract-audit.md)
 
 ## Community & Governance
 

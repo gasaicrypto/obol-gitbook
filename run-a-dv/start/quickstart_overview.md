@@ -1,6 +1,5 @@
 ---
 sidebar_position: 1
-description: Quickstart Overview
 ---
 
 # Quickstart Overview
