@@ -74,7 +74,6 @@
   * [The RAF](community-and-governance/governance/raf.md)
   * [The OBOL Token](community-and-governance/governance/obol-token.md)
   * [Delegate Guide](community-and-governance/governance/delegate-guide.md)
-  * [Obol Contributions Program](community-and-governance/governance/contributions.md)
   * [RAF1 Guide](community-and-governance/governance/raf1-guide.md)
 * [Community](community-and-governance/community/README.md)
   * [Staking Mastery Program](community-and-governance/community/staking-masters.md)
