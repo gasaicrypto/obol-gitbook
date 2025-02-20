@@ -29,7 +29,7 @@ As per your preferences, choose the correct combination of -
 {% tab title="Charon" %}
 Voluntary exit can be submitted directly through Charon. This approach is validator client agnostic as Charon abstracts validator client's native exit commands underneath.
 
-**Step 1: Submit partial exit**
+### Step 1: Submit partial exit <a href="#introduction" id="introduction"></a>
 
 {% tabs %}
 {% tab title="Single Validator" %}

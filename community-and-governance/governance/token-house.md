@@ -16,7 +16,7 @@ In the Token House, OBOL Token holders are responsible for submitting, deliberat
 *   If your proposal fails, you can make a new proposal in the next cycle, specifying how you have incorporated significant changes from your first proposal.\
 
 
-    <figure><img src="../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Token_house.png" alt=""><figcaption></figcaption></figure>
 
 ## Token House Governance Proposal Process
 
