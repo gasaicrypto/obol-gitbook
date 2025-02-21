@@ -69,6 +69,89 @@ Once the partial exit threshold is reached, a full exit can be broadcasted from 
 
 1. **Fetch the full exit and broadcast instantaneously (Broadcast directly )** - users can choose it for a single validator or all validators in the cluster.
 2. **Fetch the full exit and broadcast it later(Fetch & Broadcast later )** - users can choose it for a single validator or all validators in the cluster.
+
+{% tabs %}
+{% tab title="Broadcast directly" %}
+{% tabs %}
+{% tab title="Single Validator" %}
+Following command fetches full exit and broadcasts it instantaneously for a specific validator.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit broadcast \
+--beacon-node-endpoints="http://lighthouse:5052" \
+--validator-public-key="<VALIDATOR_PUBLIC_KEY>"'
+```
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
+{% endtab %}
+
+{% tab title="All Validators" %}
+Following command fetches full exits and broadcasts them instantaneously for all the validators that have reached a partial exit threshold.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit broadcast \
+--beacon-node-endpoints="http://lighthouse:5052" \
+--all'
+```
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
+{% endtab %}
+
+{% tab title="Fetch & Broadcast later" %}
+{% tabs %}
+{% tab title="Single Validator" %}
+**Download Exits** : The following command downloads the full exit signature for a specific public key and stores it in a file.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit fetch \
+--validator-public-key="<VALIDATOR_PUBLIC_KEY>" \
+--fetched-exit-path="/opt/charon/.charon"'
+```
+
+**Broadcast Exits** : The following command uses the full exit signature for a specific public key from the file and broadcasts it to the network.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit broadcast \
+--beacon-node-endpoints="http://lighthouse:5052" \
+--exit-from-file="/opt/charon/.charon/<FILENAME>"''
+```
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
+{% endtab %}
+
+{% tab title="All Validators" %}
+**Download Exits** : The following command downloads the full exit signature for all the active public keys and stores it in a directory.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit fetch \
+--all \
+--fetched-exit-path="/opt/charon/.charon"'
+```
+
+**Broadcast Exits** : The following command uses the full exit signatures from the directory and broadcasts it to the network.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit broadcast \
+--all \
+--beacon-node-endpoints="http://lighthouse:5052" \
+--exit-from-dir="/opt/charon/.charon"'
+```
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
+{% endtab %}
+{% endtabs %}
 {% endtab %}
 
 {% tab title="Teku" %}
@@ -106,7 +189,33 @@ docker exec -it charon-distributed-validator-node-teku-1 /opt/teku/bin/teku volu
 {% endtab %}
 {% endtabs %}
 
-s
+**Step 2: Monitor partial exit for all active validators**
+
+Consult the examples below and compare them to your validator's monitoring to verify that exits from each operator in the cluster are being received. This example is a cluster of 4 nodes with 2 validators and threshold of 3 nodes broadcasting exits are needed.
+
+1.  Operator 1 broadcasts an exit on validator client 1. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-01-7266f9324d942a47c7966bf2f036f167.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-01-cc29cb51c323e290f8ceec9c0256f574.png" alt=""><figcaption></figcaption></figure>
+2.  Operator 2 broadcasts an exit on validator client 2. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-02-9592e27d4d27ab70911856badffa662a.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-02-560e45e9e4064f1ca26a0386f8d7ec16.png" alt=""><figcaption></figcaption></figure>
+3.  Operator 3 broadcasts an exit on validator client 3. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-03-d2adbd3dec918750799fe3f07309bed3.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-03-12edb85f9744e0ff91264177f37fb753.png" alt=""><figcaption></figcaption></figure>
+
+At this point, the threshold of 3 has been reached and the validator exit process will start. The logs will show the following:&#x20;
+
+<figure><img src="https://docs.obol.org/assets/images/ExitLogs-04a7bf322d265372eac30d3671bd916b.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Nimbus" %}
@@ -144,17 +253,63 @@ cp -r /home/user/data/node0/ /home/user/data/wd/; \
     --data-dir=/home/user/data/wd/node0/;"
 ```
 
+**Step 2: Monitor partial exit for all active validators**
 
+Consult the examples below and compare them to your validator's monitoring to verify that exits from each operator in the cluster are being received. This example is a cluster of 4 nodes with 2 validators and threshold of 3 nodes broadcasting exits are needed.
+
+1.  Operator 1 broadcasts an exit on validator client 1. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-01-7266f9324d942a47c7966bf2f036f167.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-01-cc29cb51c323e290f8ceec9c0256f574.png" alt=""><figcaption></figcaption></figure>
+2.  Operator 2 broadcasts an exit on validator client 2. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-02-9592e27d4d27ab70911856badffa662a.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-02-560e45e9e4064f1ca26a0386f8d7ec16.png" alt=""><figcaption></figcaption></figure>
+3.  Operator 3 broadcasts an exit on validator client 3. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-03-d2adbd3dec918750799fe3f07309bed3.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-03-12edb85f9744e0ff91264177f37fb753.png" alt=""><figcaption></figcaption></figure>
+
+At this point, the threshold of 3 has been reached and the validator exit process will start. The logs will show the following:&#x20;
+
+<figure><img src="https://docs.obol.org/assets/images/ExitLogs-04a7bf322d265372eac30d3671bd916b.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 {% endtabs %}
 
+**Step 2: Monitor partial exit for all active validators**
 
+Consult the examples below and compare them to your validator's monitoring to verify that exits from each operator in the cluster are being received. This example is a cluster of 4 nodes with 2 validators and threshold of 3 nodes broadcasting exits are needed.
 
-s
+1.  Operator 1 broadcasts an exit on validator client 1. &#x20;
 
-s
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-01-7266f9324d942a47c7966bf2f036f167.png" alt=""><figcaption></figcaption></figure>
 
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-01-cc29cb51c323e290f8ceec9c0256f574.png" alt=""><figcaption></figcaption></figure>
+2.  Operator 2 broadcasts an exit on validator client 2. &#x20;
 
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-02-9592e27d4d27ab70911856badffa662a.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-02-560e45e9e4064f1ca26a0386f8d7ec16.png" alt=""><figcaption></figcaption></figure>
+3.  Operator 3 broadcasts an exit on validator client 3. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-03-d2adbd3dec918750799fe3f07309bed3.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-03-12edb85f9744e0ff91264177f37fb753.png" alt=""><figcaption></figcaption></figure>
+
+At this point, the threshold of 3 has been reached and the validator exit process will start. The logs will show the following:&#x20;
+
+<figure><img src="https://docs.obol.org/assets/images/ExitLogs-04a7bf322d265372eac30d3671bd916b.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Lodestar" %}
@@ -191,13 +346,33 @@ docker exec -it charon-distributed-validator-node-lodestar-1 node /usr/app/packa
 {% endtab %}
 {% endtabs %}
 
+**Step 2: Monitor partial exit for all active validators**
 
+Consult the examples below and compare them to your validator's monitoring to verify that exits from each operator in the cluster are being received. This example is a cluster of 4 nodes with 2 validators and threshold of 3 nodes broadcasting exits are needed.
 
-s
+1.  Operator 1 broadcasts an exit on validator client 1. &#x20;
 
-s
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-01-7266f9324d942a47c7966bf2f036f167.png" alt=""><figcaption></figcaption></figure>
 
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-01-cc29cb51c323e290f8ceec9c0256f574.png" alt=""><figcaption></figcaption></figure>
+2.  Operator 2 broadcasts an exit on validator client 2. &#x20;
 
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-02-9592e27d4d27ab70911856badffa662a.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-02-560e45e9e4064f1ca26a0386f8d7ec16.png" alt=""><figcaption></figcaption></figure>
+3.  Operator 3 broadcasts an exit on validator client 3. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-03-d2adbd3dec918750799fe3f07309bed3.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-03-12edb85f9744e0ff91264177f37fb753.png" alt=""><figcaption></figcaption></figure>
+
+At this point, the threshold of 3 has been reached and the validator exit process will start. The logs will show the following:&#x20;
+
+<figure><img src="https://docs.obol.org/assets/images/ExitLogs-04a7bf322d265372eac30d3671bd916b.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Lighthouse" %}
@@ -250,15 +425,41 @@ done;'
 {% endtab %}
 {% endtabs %}
 
+**Step 2: Monitor partial exit for all active validators**
 
+Consult the examples below and compare them to your validator's monitoring to verify that exits from each operator in the cluster are being received. This example is a cluster of 4 nodes with 2 validators and threshold of 3 nodes broadcasting exits are needed.
 
-s
+1.  Operator 1 broadcasts an exit on validator client 1. &#x20;
 
-s
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-01-7266f9324d942a47c7966bf2f036f167.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-01-cc29cb51c323e290f8ceec9c0256f574.png" alt=""><figcaption></figcaption></figure>
+2.  Operator 2 broadcasts an exit on validator client 2. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-02-9592e27d4d27ab70911856badffa662a.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-02-560e45e9e4064f1ca26a0386f8d7ec16.png" alt=""><figcaption></figcaption></figure>
+3.  Operator 3 broadcasts an exit on validator client 3. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-03-d2adbd3dec918750799fe3f07309bed3.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-03-12edb85f9744e0ff91264177f37fb753.png" alt=""><figcaption></figcaption></figure>
+
+At this point, the threshold of 3 has been reached and the validator exit process will start. The logs will show the following:&#x20;
+
+<figure><img src="https://docs.obol.org/assets/images/ExitLogs-04a7bf322d265372eac30d3671bd916b.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Prysm" %}
 Currently voluntary exits through Prysm are not supported. This is because [Prysm support voluntary exits only if both the validator client and the beacon node are running on Prysm](https://docs.prylabs.network/docs/wallet/exiting-a-validator). Note that this is incompatible with Charon, as the Charon client intercepts the communication between the validator client and the consensus layer.
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 
 {% tab title="DapNode" %}
@@ -280,6 +481,10 @@ Currently voluntary exits through Prysm are not supported. This is because [Prys
 
     <figure><img src="https://docs.obol.org/img/ExitUpdate.png" alt=""><figcaption></figcaption></figure>
 4. Check your logs to confirm the exit process has started.
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 {% endtabs %}
 {% endtab %}
@@ -317,9 +522,101 @@ docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon ex
 {% endtab %}
 {% endtabs %}
 
+**Step 2: Monitor the Partial Exits' status**
 
+After a threshold of signed partial exits from node operators in the cluster is accumulated, a full (complete) exit can be created. For example, in the cluster below, only 2 out of 4 clusters have reached the threshold. Operators will have to wait for one more partial exit signature, either from operator 1 or 3 to create a full exit message.
 
-s
+<figure><img src="https://docs.obol.org/img/PartialExitsStatus.png" alt=""><figcaption></figcaption></figure>
+
+**Step 3: Broadcast the full exit**
+
+Once the partial exit threshold is reached, a full exit can be broadcasted from any of the operator. There are two options to do it, depending on your use-case
+
+1. **Fetch the full exit and broadcast instantaneously (Broadcast directly )** - users can choose it for a single validator or all validators in the cluster.
+2. **Fetch the full exit and broadcast it later(Fetch & Broadcast later )** - users can choose it for a single validator or all validators in the cluster.
+
+{% tabs %}
+{% tab title="Broadcast Directly" %}
+{% tabs %}
+{% tab title="Single Validator" %}
+Following command fetches full exit and broadcasts it instantaneously for a specific validator.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit broadcast \
+--beacon-node-endpoints="http://lighthouse:5052" \
+--validator-public-key="<VALIDATOR_PUBLIC_KEY>"'
+```
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
+{% endtab %}
+
+{% tab title="All Validators" %}
+Following command fetches full exits and broadcasts them instantaneously for all the validators that have reached a partial exit threshold.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit broadcast \
+--beacon-node-endpoints="http://lighthouse:5052" \
+--all'
+```
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
+{% endtab %}
+
+{% tab title="Fetch & Broadcast" %}
+{% tabs %}
+{% tab title="Single Validator" %}
+**Download Exits** : The following command downloads the full exit signature for a specific public key and stores it in a file.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit fetch \
+--validator-public-key="<VALIDATOR_PUBLIC_KEY>" \
+--fetched-exit-path="/opt/charon/.charon"'
+```
+
+**Broadcast Exits** : The following command uses the full exit signature for a specific public key from the file and broadcasts it to the network.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit broadcast \
+--beacon-node-endpoints="http://lighthouse:5052" \
+--exit-from-file="/opt/charon/.charon/<FILENAME>"''
+```
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
+{% endtab %}
+
+{% tab title="All Validators" %}
+**Download Exits** : The following command downloads the full exit signature for all the active public keys and stores it in a directory.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit fetch \
+--all \
+--fetched-exit-path="/opt/charon/.charon"'
+```
+
+**Broadcast Exits** : The following command uses the full exit signatures from the directory and broadcasts it to the network.
+
+```
+docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon exit broadcast \
+--all \
+--beacon-node-endpoints="http://lighthouse:5052" \
+--exit-from-dir="/opt/charon/.charon"'
+```
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
+{% endtab %}
+{% endtabs %}
 {% endtab %}
 
 {% tab title="Teku" %}
@@ -355,7 +652,33 @@ docker exec -it charon-distributed-validator-node-teku-1 /opt/teku/bin/teku volu
 {% endtab %}
 {% endtabs %}
 
+**Step 2: Monitor partial exit for all active validators**
 
+Consult the examples below and compare them to your validator's monitoring to verify that exits from each operator in the cluster are being received. This example is a cluster of 4 nodes with 2 validators and threshold of 3 nodes broadcasting exits are needed.
+
+1.  Operator 1 broadcasts an exit on validator client 1. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-01-7266f9324d942a47c7966bf2f036f167.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-01-cc29cb51c323e290f8ceec9c0256f574.png" alt=""><figcaption></figcaption></figure>
+2.  Operator 2 broadcasts an exit on validator client 2. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-02-9592e27d4d27ab70911856badffa662a.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-02-560e45e9e4064f1ca26a0386f8d7ec16.png" alt=""><figcaption></figcaption></figure>
+3.  Operator 3 broadcasts an exit on validator client 3. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-03-d2adbd3dec918750799fe3f07309bed3.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-03-12edb85f9744e0ff91264177f37fb753.png" alt=""><figcaption></figcaption></figure>
+
+At this point, the threshold of 3 has been reached and the validator exit process will start. The logs will show the following:&#x20;
+
+<figure><img src="https://docs.obol.org/assets/images/ExitLogs-04a7bf322d265372eac30d3671bd916b.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Nimbus" %}
@@ -395,7 +718,33 @@ cp -r /home/user/data/node0/ /home/user/data/wd/; \
 {% endtab %}
 {% endtabs %}
 
+**Step 2: Monitor partial exit for all active validators**
 
+Consult the examples below and compare them to your validator's monitoring to verify that exits from each operator in the cluster are being received. This example is a cluster of 4 nodes with 2 validators and threshold of 3 nodes broadcasting exits are needed.
+
+1.  Operator 1 broadcasts an exit on validator client 1. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-01-7266f9324d942a47c7966bf2f036f167.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-01-cc29cb51c323e290f8ceec9c0256f574.png" alt=""><figcaption></figcaption></figure>
+2.  Operator 2 broadcasts an exit on validator client 2. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-02-9592e27d4d27ab70911856badffa662a.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-02-560e45e9e4064f1ca26a0386f8d7ec16.png" alt=""><figcaption></figcaption></figure>
+3.  Operator 3 broadcasts an exit on validator client 3. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-03-d2adbd3dec918750799fe3f07309bed3.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-03-12edb85f9744e0ff91264177f37fb753.png" alt=""><figcaption></figcaption></figure>
+
+At this point, the threshold of 3 has been reached and the validator exit process will start. The logs will show the following:&#x20;
+
+<figure><img src="https://docs.obol.org/assets/images/ExitLogs-04a7bf322d265372eac30d3671bd916b.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Lodestar" %}
@@ -432,7 +781,33 @@ docker exec -it charon-distributed-validator-node-lodestar-1 node /usr/app/packa
 {% endtab %}
 {% endtabs %}
 
+**Step 2: Monitor partial exit for all active validators**
 
+Consult the examples below and compare them to your validator's monitoring to verify that exits from each operator in the cluster are being received. This example is a cluster of 4 nodes with 2 validators and threshold of 3 nodes broadcasting exits are needed.
+
+1.  Operator 1 broadcasts an exit on validator client 1. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-01-7266f9324d942a47c7966bf2f036f167.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-01-cc29cb51c323e290f8ceec9c0256f574.png" alt=""><figcaption></figcaption></figure>
+2.  Operator 2 broadcasts an exit on validator client 2. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-02-9592e27d4d27ab70911856badffa662a.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-02-560e45e9e4064f1ca26a0386f8d7ec16.png" alt=""><figcaption></figcaption></figure>
+3.  Operator 3 broadcasts an exit on validator client 3. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-03-d2adbd3dec918750799fe3f07309bed3.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-03-12edb85f9744e0ff91264177f37fb753.png" alt=""><figcaption></figcaption></figure>
+
+At this point, the threshold of 3 has been reached and the validator exit process will start. The logs will show the following:&#x20;
+
+<figure><img src="https://docs.obol.org/assets/images/ExitLogs-04a7bf322d265372eac30d3671bd916b.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Lighthouse" %}
@@ -484,6 +859,34 @@ done;'
 ```
 {% endtab %}
 {% endtabs %}
+
+**Step 2: Monitor partial exit for all active validators**
+
+Consult the examples below and compare them to your validator's monitoring to verify that exits from each operator in the cluster are being received. This example is a cluster of 4 nodes with 2 validators and threshold of 3 nodes broadcasting exits are needed.
+
+1.  Operator 1 broadcasts an exit on validator client 1. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-01-7266f9324d942a47c7966bf2f036f167.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-01-cc29cb51c323e290f8ceec9c0256f574.png" alt=""><figcaption></figcaption></figure>
+2.  Operator 2 broadcasts an exit on validator client 2. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-02-9592e27d4d27ab70911856badffa662a.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-02-560e45e9e4064f1ca26a0386f8d7ec16.png" alt=""><figcaption></figcaption></figure>
+3.  Operator 3 broadcasts an exit on validator client 3. &#x20;
+
+    <figure><img src="https://docs.obol.org/assets/images/ExitPromQuery-03-d2adbd3dec918750799fe3f07309bed3.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="https://docs.obol.org/assets/images/DutyExit-03-12edb85f9744e0ff91264177f37fb753.png" alt=""><figcaption></figcaption></figure>
+
+At this point, the threshold of 3 has been reached and the validator exit process will start. The logs will show the following:&#x20;
+
+<figure><img src="https://docs.obol.org/assets/images/ExitLogs-04a7bf322d265372eac30d3671bd916b.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Prysm" %}
@@ -509,20 +912,18 @@ Currently voluntary exits through Prysm are not supported. This is because [Prys
 
     <figure><img src="https://docs.obol.org/img/ExitUpdate.png" alt=""><figcaption></figcaption></figure>
 4. Check your logs to confirm the exit process has started.
+
+{% hint style="success" %}
+Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+{% endhint %}
 {% endtab %}
 {% endtabs %}
-
-
-
-s
 {% endtab %}
 {% endtabs %}
 
 ### Exit epoch and withdrawable epoch[​](https://docs.obol.org/next/run/running/quickstart-exit#exit-epoch-and-withdrawable-epoch) <a href="#exit-epoch-and-withdrawable-epoch" id="exit-epoch-and-withdrawable-epoch"></a>
 
 The process of a validator exiting from staking takes variable amounts of time, depending on how many others are exiting at the same time.
-
-
 
 Immediately upon broadcasting a signed voluntary exit message, the exit epoch and withdrawable epoch values are calculated based off the current epoch number. These values determine exactly when the validator will no longer be required to be online performing validation, and when the validator is eligible for a full withdrawal respectively.
 
