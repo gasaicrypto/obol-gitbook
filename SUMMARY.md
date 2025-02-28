@@ -117,8 +117,8 @@
 
 ## API
 
-* [/](api/undefined.md)
 * [API](api/api.md)
+* [/](api/undefined.md)
 * [Metrics](api/metrics.md)
 * [API Health](api/api-health.md)
 * [Definition](api/definition/README.md)
