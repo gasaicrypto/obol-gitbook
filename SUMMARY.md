@@ -4,6 +4,7 @@
 
 * [Introduction](README.md)
   * [Obol Collective](learn/intro/obol-collective.md)
+  * [OBOL Incentives](learn/intro/obol-incentives.md)
   * [Key Staking Concepts](learn/intro/key-concepts.md)
   * [Obol vs Other DV Implementations](learn/intro/obol-vs-others.md)
   * [Obol Splits](learn/intro/obol-splits.md)
