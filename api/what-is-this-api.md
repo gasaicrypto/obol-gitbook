@@ -1,3 +1,7 @@
+---
+description: 'Download OpenAPI specifications: https://api.obol.tech/docs-json'
+---
+
 # What is this API?
 
 ### What is this API?
@@ -6,6 +10,4 @@ This API is for creating and managing [Distributed Validators](https://docs.obol
 
 Read more about Obol and how to use the [launchpad](https://holesky.launchpad.obol.org) on our [docs site](https://docs.obol.tech/).
 
-For enquiries:
-
-###
+For enquiries: DV Labs: [support@dvlabs.tech](mailto:support@obol.tech)

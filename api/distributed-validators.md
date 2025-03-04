@@ -1,3 +1,9 @@
+---
+description: Configuration for distributed validator key generation ceremonies.
+---
+
 # Distributed Validators
 
-Configuration for distributed validator key generation ceremonies.
+{% openapi src="https://api.obol.tech/docs-json" path="/" method="get" %}
+[https://api.obol.tech/docs-json](https://api.obol.tech/docs-json)
+{% endopenapi %}

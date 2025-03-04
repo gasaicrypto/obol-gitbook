@@ -1,2 +1,2 @@
-# Techne Credentials
+# Techne
 

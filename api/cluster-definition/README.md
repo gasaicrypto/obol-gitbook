@@ -1,13 +1,13 @@
-# Cluster Definition
+# Definition
 
-{% swagger src="https://api.obol.tech/docs-json" path="/v1/definition/{configHash}" method="get" %}
+{% openapi src="https://api.obol.tech/docs-json" path="/v1/definition/{configHash}" method="get" %}
 [https://api.obol.tech/docs-json](https://api.obol.tech/docs-json)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://api.obol.tech/docs-json" path="/v1/definition/{configHash}" method="put" %}
+{% openapi src="https://api.obol.tech/docs-json" path="/v1/definition/{configHash}" method="put" %}
 [https://api.obol.tech/docs-json](https://api.obol.tech/docs-json)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://api.obol.tech/docs-json" path="/v1/definition" method="post" %}
+{% openapi src="https://api.obol.tech/docs-json" path="/v1/definition" method="post" %}
 [https://api.obol.tech/docs-json](https://api.obol.tech/docs-json)
-{% endswagger %}
+{% endopenapi %}
