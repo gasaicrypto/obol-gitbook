@@ -11,13 +11,13 @@ The method for claiming rewards depends on the Cluster's withdrawal configuratio
 \
 
 
-| **Withdrawal Configuration**                                            | **Subcategory Description**                                                               | **Is supported on Launchpad?** | **Where to claim?**                                                                                                                                                                                   |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1. Claim principal + rewards without splits - Exit and get rewards      | To claim principal or rewards without splits, users currently have to exit the validator. | ✅                              | Cluster details page in the Operator Dashboard. For example, [here](https://holesky.launchpad.obol.org/cluster/details/?lockHash=0x42833298f3c767b866615814dd9f86ce35ed2f89bf3d397d5f353a0ad5a38013). |
-| 2. Splits only rewards using OWR - ETH                                  | For all clusters with ETH rewards.                                                        | ✅                              | Cluster details page in the Operator Dashboard. For example, [here](https://holesky.launchpad.obol.org/cluster/details/?lockHash=0x42833298f3c767b866615814dd9f86ce35ed2f89bf3d397d5f353a0ad5a38013). |
-| 3. Split principal + rewards - ETH                                      | For clusters configured to split both principal and rewards.                              | ✅                              | Operators currently need to use the UI provided by Splits.org. For example, a [Lido Split](https://app.splits.org/accounts/0x845aF36663a9908D9E46101e3CC658FbCEB783a8/?chainId=1).                    |
-| 4. Splits non-ETH rewards using any withdrawal config - wstETH or weETH | For Lido and EtherFi clusters earning rewards in protocol-specific tokens.                | In Progress ➡️                 | Operators currently need to use the UI provided by Splits.org. For example, a [Lido Split](https://app.splits.org/accounts/0x845aF36663a9908D9E46101e3CC658FbCEB783a8/?chainId=1).                    |
-| 5. Lido CSM rewards - wstETH                                            | For all Lido CSM clusters earning wstETH rewards.                                         | In Progress ➡️                 | Similar to row number 3, use the Splits UI. More details can be found at the bottom of [this page](https://docs.obol.org/run/integrations/lido-csm).                                                  |
+| Withdrawal Configuration                                                | Subcategory Description                                                                   | Is supported on Launchpad? | Where to claim?                                                                                                                                                                                       |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Claim principal + rewards without splits - Exit and get rewards      | To claim principal or rewards without splits, users currently have to exit the validator. | ✅                          | Cluster details page in the Operator Dashboard. For example, [here](https://holesky.launchpad.obol.org/cluster/details/?lockHash=0x42833298f3c767b866615814dd9f86ce35ed2f89bf3d397d5f353a0ad5a38013). |
+| 2. Splits only rewards using OWR - ETH                                  | For all clusters with ETH rewards.                                                        | ✅                          | Cluster details page in the Operator Dashboard. For example, [here](https://holesky.launchpad.obol.org/cluster/details/?lockHash=0x42833298f3c767b866615814dd9f86ce35ed2f89bf3d397d5f353a0ad5a38013). |
+| 3. Split principal + rewards - ETH                                      | For clusters configured to split both principal and rewards.                              | ✅                          | Operators currently need to use the UI provided by Splits.org. For example, a [Lido Split](https://app.splits.org/accounts/0x845aF36663a9908D9E46101e3CC658FbCEB783a8/?chainId=1).                    |
+| 4. Splits non-ETH rewards using any withdrawal config - wstETH or weETH | For Lido and EtherFi clusters earning rewards in protocol-specific tokens.                | In Progress ➡️             | Operators currently need to use the UI provided by Splits.org. For example, a [Lido Split](https://app.splits.org/accounts/0x845aF36663a9908D9E46101e3CC658FbCEB783a8/?chainId=1).                    |
+| 5. Lido CSM rewards - wstETH                                            | For all Lido CSM clusters earning wstETH rewards.                                         | In Progress ➡️             | Similar to row number 3, use the Splits UI. More details can be found at the bottom of [this page](https://docs.obol.org/run/integrations/lido-csm).                                                  |
 
 ### Claim Flow[​](https://docs.obol.org/next/run/running/claim-rewards#claim-flow) <a href="#claim-flow" id="claim-flow"></a>
 
@@ -37,9 +37,9 @@ To understand how claims via Launchpad work, it is highly recommended to first u
 
 We are constantly improving the user experience. Below are some edge cases to avoid confusion:
 
-#### Case 1: The `Claimable` column doesn’t match the amount next to the `Claim All` button.[​](https://docs.obol.org/next/run/running/claim-rewards#case-1-the-claimable-column-doesnt-match-the-amount-next-to-the-claim-all-button) <a href="#case-1-the-claimable-column-doesnt-match-the-amount-next-to-the-claim-all-button" id="case-1-the-claimable-column-doesnt-match-the-amount-next-to-the-claim-all-button"></a>
+#### Case 1: The `Claimable` column doesn’t match the amount next to the `Claim All` button. <a href="#case-1-the-claimable-column-doesnt-match-the-amount-next-to-the-claim-all-button" id="case-1-the-claimable-column-doesnt-match-the-amount-next-to-the-claim-all-button"></a>
 
-![ClaimCase1](https://docs.obol.org/assets/images/ClaimCase1-c289226f60fd0a1306e8a8f31c29f3b8.png)
+<figure><img src="../../.gitbook/assets/image (87).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -51,7 +51,7 @@ Your total effective claimable amount will always be displayed next to the `Clai
 
 #### Case 2: You don’t see a `Claim All` button but instead see `Distribute All`.[​](https://docs.obol.org/next/run/running/claim-rewards#case-2-you-dont-see-a-claim-all-button-but-instead-see-distribute-all) <a href="#case-2-you-dont-see-a-claim-all-button-but-instead-see-distribute-all" id="case-2-you-dont-see-a-claim-all-button-but-instead-see-distribute-all"></a>
 
-![Claim Case 2](https://docs.obol.org/assets/images/ClaimCase2-ed47de127cf1e07c36f5b83ad08e0a5e.png)
+<figure><img src="../../.gitbook/assets/image (88).png" alt=""><figcaption></figcaption></figure>
 
 This happens because the connected address is not listed in the split configuration. You may have used a different operator address from the one in the splitter configuration. You can:
 
@@ -60,8 +60,8 @@ This happens because the connected address is not listed in the split configurat
 
 Note: It costs the same gas to distribute rewards for one address as it does for all addresses.
 
-#### Case 3: You just created a new cluster with no active validators or rewards, but it shows a `Claim All` amount.[​](https://docs.obol.org/next/run/running/claim-rewards#case-3-you-just-created-a-new-cluster-with-no-active-validators-or-rewards-but-it-shows-a-claim-all-amount) <a href="#case-3-you-just-created-a-new-cluster-with-no-active-validators-or-rewards-but-it-shows-a-claim-all" id="case-3-you-just-created-a-new-cluster-with-no-active-validators-or-rewards-but-it-shows-a-claim-all"></a>
+#### Case 3: You just created a new cluster with no active validators or rewards, but it shows a `Claim All` amount. <a href="#case-3-you-just-created-a-new-cluster-with-no-active-validators-or-rewards-but-it-shows-a-claim-all" id="case-3-you-just-created-a-new-cluster-with-no-active-validators-or-rewards-but-it-shows-a-claim-all"></a>
 
-![ClaimCase3](https://docs.obol.org/assets/images/ClaimCase3-9ab4b9f9bd03195adabce0f51033b099.png)
+<figure><img src="../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
 
 The amount shown here is from a previous case and is now sitting in the Split Main, ready to be claimed. Unfortunately, it is not possible to associate the Split Main balance of an address with a specific cluster. If you are part of multiple clusters, your Split Main balance will appear next to all `Claim All` buttons, regardless of the cluster. We are working on a fix to avoid this confusion.
