@@ -5,9 +5,11 @@ description: Migrate an existing validator by splitting its private key into sha
 
 # Migrate an Existing Validator
 
-:::warning This process should only be used if you want to split an _existing validator private key_ into multiple private key shares for use in a Distributed Validator Cluster. **If your existing validator is not properly shut down before the Distributed Validator starts, your validator may be slashed**.
+{% hint style="warning" %}
+This process should only be used if you want to split an _existing validator private key_ into multiple private key shares for use in a Distributed Validator Cluster. **If your existing validator is not properly shut down before the Distributed Validator starts, your validator may be slashed**.
 
-If you are starting a new validator, you should follow a [quickstart guide](../../run-a-dv/start/quickstart_overview.md) instead. :::
+If you are starting a new validator, you should follow a [quickstart guide](../../run-a-dv/start/quickstart_overview.md) instead.
+{% endhint %}
 
 Split an existing Ethereum validator key into multiple key shares for use in an [Obol Distributed Validator Cluster](../../learn/intro/key-concepts.md#distributed-validator-cluster).
 
