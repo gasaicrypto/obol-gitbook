@@ -298,12 +298,16 @@ For the [DKG](https://docs.obol.org/next/learn/charon/dkg) to complete, all oper
 
 {% tabs %}
 {% tab title="Launchpad" %}
-1.  Once all operators successfully signed, your screen will automatically advance to the next step and look like this. Click `Continue`. (If you closed the tab, you can always go back to the invite link shared by the leader and connect your wallet.)&#x20;
+{% embed url="https://www.youtube.com/watch?v=cEMhxHuNJrI" %}
 
-    <figure><img src="https://docs.obol.org/assets/images/Guide08-46621accb14c6c81d266bc55adb43621.png" alt=""><figcaption></figcaption></figure>
-2.  Copy and run the `docker` command on the screen into your terminal. It will retrieve the remote cluster details and begin the DKG process.&#x20;
+1.  Once all operators successfully signed, your screen will automatically advance to the next step and look like this. Click `Continue`. (If you closed the tab, you can always go back to the invite link shared by the leader and connect your wallet.) \
 
-    <figure><img src="https://docs.obol.org/assets/images/Guide10-66d7c37171ee24ff1b6f7118308c6a29.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+2.  Copy and run the `docker` command on the screen into your terminal. It will retrieve the remote cluster details and begin the DKG process. \
+
+
+    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 3. Assuming the DKG is successful, a number of artefacts will be created in the `.charon` folder of the node. These include:
    * A `deposit-data.json` file. This contains the information needed to activate the validator on the Ethereum network.
    * A `cluster-lock.json` file. This contains the information needed by Charon to operate the distributed validator cluster with its peers.
@@ -321,39 +325,31 @@ and the DKG process should begin.
 {% endtab %}
 
 {% tab title="DappNode" %}
-Follow this step if you are signing through the DV Launchpad, importing the cluster definition URL into the DappNode package's config & then running the DKG inside the DappNode, followed by cluster run.
+Follow this step if you are signing through the DV Launchpad, importing the cluster definition URL into the DappNode package's config & then running the DKG inside the DappNode, followed by cluster run.\
 
-<figure><img src="https://docs.obol.org/img/StartDKG.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 1.  After all operators have signed with their wallet and has provided an ENR from the DappNode info tab, the Launchpad will instruct operators to begin the DKG ceremony. Click continue & navigate to the 'Dappnode/Avado' tab where the cluster definition URL is presented.
 
+    <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+2.  To run the Distributed Key Generation ceremony using a DappNode, you must paste the cluster definition URL into the Obol Package interface. Go to the 'Config' tab, select 'URL' from the dropdown menu, paste the cluster definition URL you retrieved from the launchpad, into the validator `cluster-*`field which matches the cluster you took the ENR from. Example: If you picked ENR1 for signing, then you should paste the URL into Cluster-1. Finally, click the 'Update' button at the bottom of the page.\
 
 
-    <figure><img src="https://docs.obol.org/img/DappnodeTab.png" alt=""><figcaption></figcaption></figure>
-2.  To run the Distributed Key Generation ceremony using a DappNode, you must paste the cluster definition URL into the Obol Package interface. Go to the 'Config' tab, select 'URL' from the dropdown menu, paste the cluster definition URL you retrieved from the launchpad, into the validator `cluster-*`field which matches the cluster you took the ENR from. Example: If you picked ENR1 for signing, then you should paste the URL into Cluster-1. Finally, click the 'Update' button at the bottom of the page.
+    <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
+    <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
-
-    <figure><img src="https://docs.obol.org/img/CopyURL.png" alt=""><figcaption></figcaption></figure>
-
-    <figure><img src="https://docs.obol.org/img/PasteURL.png" alt=""><figcaption></figcaption></figure>
-
-    <figure><img src="https://docs.obol.org/img/SelectURL.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 3.  After DappNode records the cluster definition URL, go back to the 'Info' tab and restart the Charon container.
 
-
-
-    <figure><img src="https://docs.obol.org/img/RestartContainer.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 4.  The node is now ready and will attempt to complete the DKG. You can monitor the DKG progress via the 'Logs' tab of the package. Once all clients in the cluster can establish a connection with one another and they each complete a handshake (confirm everyone has a matching `cluster_definition_hash`), the key generation ceremony begins.
 
-
-
-    <figure><img src="https://docs.obol.org/img/ConnectPeers.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 5.  Example of DKG ceremony competed log.
 
-
-
-    <figure><img src="https://docs.obol.org/img/DKGExample.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 ### Create a DV Node Backup
 
@@ -361,21 +357,16 @@ It is important to back up all artefacts generated by the DKG ceremony, and your
 
 1.  Navigate to the backup tab inside the Obol package.
 
-
-
-    <figure><img src="https://docs.obol.org/img/createBackup.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 2.  Click on the 'Backup now' button and it will open a new chrome window with a 'file save' option. Select the path where you want to save the Backup tar file.
 
+    <figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+3.  Double click to extract the tar file. There will be folders for each charon node (max 5). Navigate to each node folder, and all artefacts related to each node will be present.\
 
 
-    <figure><img src="https://docs.obol.org/img/saveBackup.png" alt=""><figcaption></figcaption></figure>
-3.  Double click to extract the tar file. There will be folders for each charon node (max 5). Navigate to each node folder, and all artefacts related to each node will be present.
+    <figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
-
-
-    <figure><img src="https://docs.obol.org/img/ExtractFile.png" alt=""><figcaption></figcaption></figure>
-
-    <figure><img src="https://docs.obol.org/img/Node.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Sedge" %}
