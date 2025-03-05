@@ -1,3 +1,7 @@
+---
+description: MetricsController_metrics
+---
+
 # Metrics
 
 {% openapi src="https://api.obol.tech/docs-json" path="/metrics" method="get" %}
