@@ -4,7 +4,9 @@ description: Documenting a Distributed Validator Cluster in a standardised file 
 
 # Cluster Configuration
 
-:::warning These cluster definition and cluster lock files are a work in progress. The intention is for the files to be standardised for operating distributed validators via the [EIP process](https://eips.ethereum.org/) when appropriate. :::
+{% hint style="warning" %}
+These cluster definition and cluster lock files are a work in progress. The intention is for the files to be standardised for operating distributed validators via the [EIP process](https://eips.ethereum.org/) when appropriate.
+{% endhint %}
 
 This document describes the configuration options for running a Charon client or cluster.
 
