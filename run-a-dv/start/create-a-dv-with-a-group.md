@@ -569,7 +569,55 @@ Use Kubernetes manifests to start your Charon client and validator client. These
 {% endtab %}
 
 {% tab title="Existing Beacon Node" %}
+{% hint style="warning" %}
+Using a remote beacon node will impact the performance of your Distributed Validator and should be used sparingly.
+{% endhint %}
 
+If you already have a beacon node running somewhere and you want to use that instead of running an EL (`nethermind`) & CL (`lighthouse`) as part of the example repo, you can disable these images. To do so, follow these steps:
+
+1. Copy the `docker-compose.override.yml.sample` file
+
+```sh
+cp -n docker-compose.override.yml.sample docker-compose.override.yml
+```
+
+2. Uncomment the `profiles: [disable]` section for both `nethermind` and `lighthouse`. The override file should now look like this
+
+```
+services:
+  nethermind:
+    # Disable nethermind
+    profiles: [disable]
+    # Bind nethermind internal ports to host ports
+    #ports:
+      #- 8545:8545 # JSON-RPC
+      #- 8551:8551 # AUTH-RPC
+      #- 6060:6060 # Metrics
+  lighthouse:
+    # Disable lighthouse
+    profiles: [disable]
+    # Bind lighthouse internal ports to host ports
+    #ports:
+      #- 5052:5052 # HTTP
+      #- 5054:5054 # Metrics
+...
+```
+
+3. Then, uncomment and set the `CHARON_BEACON_NODE_ENDPOINTS` variable in the `.env` file to your beacon node's URL
+
+```sh
+...
+# Connect to one or more external beacon nodes. Use a comma separated list excluding spaces.
+CHARON_BEACON_NODE_ENDPOINTS=<YOUR_REMOTE_BEACON_NODE_URL>
+...
+```
+
+4. Restart your docker compose
+
+```sh
+docker compose down
+docker compose up -d
+```
 {% endtab %}
 {% endtabs %}
 
