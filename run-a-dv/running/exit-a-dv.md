@@ -62,7 +62,7 @@ docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon ex
 After a threshold of signed partial exits from node operators in the cluster is accumulated, a full (complete) exit can be created. For example, in the cluster below, only 2 out of 4 clusters have reached the threshold. Operators will have to wait for one more partial exit signature, either from operator 1 or 3 to create a full exit message.\
 
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 **Step 3: Broadcast the full exit**
 
@@ -196,7 +196,7 @@ Consult the examples below and compare them to your validator's monitoring to ve
     \
 
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
     <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 2.  Operator 2 broadcasts an exit on validator client 2.  \
@@ -481,7 +481,7 @@ Once a validator has broadcasted an exit message, it must continue to validate f
 {% endhint %}
 {% endtab %}
 
-{% tab title="DapNode" %}
+{% tab title="DappNode" %}
 ### Exit a distributed validator using DappNode
 
 1.  Navigate to the config tab of your Obol DappNode package. Click 'Packages', then click 'My Packages', and enter the Obol package. Go to the config tab. At the bottom right corner of the page, click on 'Show Advanced Editor'.

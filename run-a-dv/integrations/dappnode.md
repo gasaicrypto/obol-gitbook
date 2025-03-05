@@ -1,6 +1,6 @@
 # DappNode
 
-### For setup, see quickstart guide:[​](https://docs.obol.org/next/run/integrations/Dappnode#for-setup-see-quickstart-guide) <a href="#for-setup-see-quickstart-guide" id="for-setup-see-quickstart-guide"></a>
+For setup, see quickstart guide:[​](https://docs.obol.org/next/run/integrations/Dappnode#for-setup-see-quickstart-guide)
 
 For setup of a DV using Dappnode, see the quickstart guide [Create a DV Alone](https://docs.obol.org/next/run/start/quickstart_alone), and select the appropriate tab for "Dappnode".
 
@@ -13,15 +13,16 @@ Yes, they need to clean up the Charon and validator volumes. However, instead of
 1. Download a backup (keep a copy just in case).
 2. Edit the backup, keeping only the necessary files from the specific cluster (see image below)
 
-![necessary files](https://docs.obol.org/img/BackupFAQ.jpeg)
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 3. Recompress the edited backup and upload it again after removing the Charon and validator volumes.
 
 #### Does an operator need to use the `VALIDATOR_EXTRA_OPTS` to pass the `builderonly` or `builderalways` flag for Lodestar VC?[​](https://docs.obol.org/next/run/integrations/Dappnode#does-an-operator-need-to-use-the-validator_extra_opts-to-pass-the-builderonly-or-builderalways-flag-for-lodestar-vc) <a href="#does-an-operator-need-to-use-the-validator_extra_opts-to-pass-the-builderonly-or-builderalways-flag" id="does-an-operator-need-to-use-the-validator_extra_opts-to-pass-the-builderonly-or-builderalways-flag"></a>
 
-No, if `ENABLE_MEV_BOOST` is set to `true`, these flags will be added automatically.
+No, if `ENABLE_MEV_BOOST` is set to `true`, these flags will be added automatically.\
 
-<figure><img src="https://docs.obol.org/img/dappnodeFlags.jpeg" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
 
 #### How can users running two clusters (e.g., one for EtherFi solo stakers and another for Techne) on the same Dappnode machine push monitoring data from both clusters to Obol?[​](https://docs.obol.org/next/run/integrations/Dappnode#how-can-users-running-two-clusters-eg-one-for-etherfi-solo-stakers-and-another-for-techne-on-the-same-dappnode-machine-push-monitoring-data-from-both-clusters-to-obol) <a href="#how-can-users-running-two-clusters-eg-one-for-etherfi-solo-stakers-and-another-for-techne-on-the-sam" id="how-can-users-running-two-clusters-eg-one-for-etherfi-solo-stakers-and-another-for-techne-on-the-sam"></a>
 

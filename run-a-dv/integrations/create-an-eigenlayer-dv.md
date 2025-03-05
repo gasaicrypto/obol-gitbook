@@ -1,6 +1,6 @@
 # Create an EigenLayer DV
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 The Obol-SDK is in a beta state and should be used with caution. Ensure you validate all important data.
 {% endhint %}
 

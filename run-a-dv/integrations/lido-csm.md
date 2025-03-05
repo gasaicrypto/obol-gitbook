@@ -22,7 +22,9 @@ Part 2: Using the [Obol DV Launchpad](https://launchpad.obol.org/) + CLI to crea
 
 Part 3: Deploying the validator to Lido's CSM using their UI.
 
-:::info In this guide we'll be using CSM UI in advanced mode, using the `extendedManagerPermissions` to set the `managerAddress` to the cluster multi-sig (SAFE) and the `rewardAddress` to the Splits.org splitting contract. :::
+{% hint style="success" %}
+In this guide we'll be using CSM UI in advanced mode, using the `extendedManagerPermissions` to set the `managerAddress` to the cluster multi-sig (SAFE) and the `rewardAddress` to the Splits.org splitting contract.
+{% endhint %}
 
 ## Part 1: Creating the Cluster SAFE + Splitter Contract
 
@@ -62,7 +64,7 @@ Select `Split` for the contract type.
 
 Add the reward addresses of all cluster members. Choose whether the contract is immutable (reccommended option), whether to sponsor the maintainers of [splits.org](https://splits.org), and optionally whether to set a distribution bounty such that third parties could pay the gas costs of distributing the accrued rewards in exchange for a small fee.
 
-{% hint style="info" %}
+{% hint style="success" %}
 If your cluster would like to contribute a portion of its rewards to Obol’s '[1% for Decentralisation](https://blog.obol.org/1-percent-for-decentralisation/)' Retroactive Fund, thereby earning [Obol Contributions](https://obol.org/contributions) as part of Lido's [integration of CSM](https://research.lido.fi/t/integrate-csm-into-the-decentralized-validator-vault/8621) into the DV Vault, you must add [retroactivefunding.obol.eth](https://etherscan.io/address/0xDe5aE4De36c966747Ea7DF13BD9589642e2B1D0d) as a recipient of 0.1% of the splitter contract. This will contribute 0.1% of rewards **and your CSM bond** to Obol's RAF. Future versions of CSM integrations will enable contributing exactly 1% of accruing CSM rewards
 {% endhint %}
 
@@ -147,7 +149,7 @@ On the next page, they will find a CLI command which is used to begin the Distri
 
 <figure><img src="../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
+{% hint style="success" %}
 Go back to the terminal and make sure you're in the `charon-distributed-validator-node` directory before running the DKG command:
 
 ```sh
