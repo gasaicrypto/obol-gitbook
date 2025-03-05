@@ -85,7 +85,7 @@ Make sure your backup is secure and private, someone with access to these files 
 
 {% tabs %}
 {% tab title="Run the nodes on a single machine" %}
-{% hint style="danger" %}
+{% hint style="warning" %}
 This part of the guide only runs one Execution Client, one Consensus Client, and 6 Distributed Validator Charon Client + Validator Client pairs on a single docker instance, and **is not suitable for a mainnet deployment**. (If this machine fails, there will not be any fault tolerance - the cluster will also fail.)
 
 For a production deployment with fault tolerance, follow the part of the guide instructing you how to distribute the nodes across multiple machines.
@@ -107,7 +107,7 @@ open http://localhost:3000/d/laEp8vupp
 {% endtab %}
 
 {% tab title="Run the nodes on multiple machines" %}
-{% hint style="danger" %}
+{% hint style="warning" %}
 To distribute your cluster across multiple machines, each node in the cluster needs one of the folders called `node*/` to be copied to it. Each folder should be copied to a [CDVN repo](https://github.com/ObolNetwork/charon-distributed-validator-node) and renamed from `node*` to `.charon`.
 
 Right now, the `charon create cluster` command [used earlier to create the private keys](https://docs.obol.org/next/run/start/quickstart_alone#step-1-create-the-key-shares-locally) outputs a folder structure like `cluster/node*/`. Make sure to grab the `./node*/` folders, _rename_ them to `.charon` and then move them to one of the single node repos below. Once all nodes are online, synced, and connected, you will be ready to activate your validator.
@@ -180,8 +180,6 @@ Folder structure to be placed on each DV node:
 ```
 
 {% hint style="info" %}
-
-
 Currently, the quickstart repo installs a node on the Holesky testnet. It is possible to choose a different network (another testnet, or mainnet) by overriding the `.env` file.
 
 `.env.sample` is a sample environment file that allows overriding default configuration defined in `docker-compose.yml`. Uncomment and set any variable to override its value.
