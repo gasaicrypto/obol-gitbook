@@ -1,36 +1,37 @@
 ---
-description: Documentation Standards
 sidebar_position: 2
+description: Documentation Standards
 ---
-
 
 # Documentation Standards
 
+## Documentation Standards
+
 This section outlines the formatting standards presented within this documentation. In order to maintain continuity and quality, all pull requests must conform to the specifics below.
 
-## Content types
+### Content types
 
 Walkthroughs and conceptual articles explained.
 
-### Walkthroughs
+#### Walkthroughs
 
 The purpose of a walkthrough is to tell the user _how_ to do something. They do not need to convince the reader of something or explain a concept. Walkthroughs are a list of steps the reader must follow to achieve a process or function.
 
 The vast majority of documentation within this manual falls under the _Walkthrough_ category. Walkthroughs are generally quite short, have a neutral tone and teach the reader how to achieve a particular process or function. They present the reader with concrete steps on where to go, what to type, and things they should click on. There is little to no _conceptual_ information within walkthroughs.
 
-#### Function or process
+**Function or process**
 
 The end goal of a walkthrough is for the reader to achieve a very particular function.
 
 Take an installation page for example: Following this walkthrough isn't going to teach the reader much about working with the decentralized web or what Obol is. Still, by the end, they'll have Charon installed on their computer.
 
-#### Short length
+**Short length**
 
 Since walkthroughs cover one particular function or process, they tend to be quite short. The estimated reading time of a walkthrough is somewhere between 2 and 10 minutes. Most of the time, the most critical content on a walkthrough is presented in a numbered list. Images and gifs can help the reader understand what they should be doing.
 
 If a walkthrough is converted into a video, that video should be no longer than 5 minutes.
 
-#### Walkthrough structure
+**Walkthrough structure**
 
 Walkthroughs are split into three major sections:
 
@@ -39,25 +40,25 @@ Walkthroughs are split into three major sections:
 3. The steps we need to do.
 4. Summary of what we just did and potential next steps.
 
-### Conceptual articles
+#### Conceptual articles
 
 Articles are written with the intent to inform and explain something. These articles don't contain any steps or actions that the reader has to perform _right now_.
 
 These articles are vastly different in tone when compared to walkthroughs. Some topics and concepts can be challenging to understand, so creative writing and interesting diagrams are highly sought-after for these articles. Whatever writers can do to make a subject more understandable, the better.
 
-#### Article goals
+**Article goals**
 
 Use the following goals when writing conceptual articles:
 
-| Goal | Keyword | Explanation |
+| Goal          | Keyword                  | Explanation                                                                      |
 | ------------- | ------------------------ | -------------------------------------------------------------------------------- |
 | **Audience**  | _Knowledgeable_          | Requires a certain amount of focus to understand.                                |
-| **Formality** | _Neutral_                | Slang is restricted. **No you / your** -- explain informatively.                   |
+| **Formality** | _Neutral_                | Slang is restricted. **No you / your** -- explain informatively.                 |
 | **Domain**    | _Any_                    | Usually _technical_, but depends on the article.                                 |
 | **Tone**      | _Confident and friendly_ | The reader must feel confident that the writer knows what they're talking about. |
 | **Intent**    | _Describe_               | Tell the reader _why_ something does the thing that it does, or why it exists.   |
 
-#### Article structure
+**Article structure**
 
 Articles are separated into five major sections:
 
@@ -69,15 +70,15 @@ Articles are separated into five major sections:
 
 When designing a tutorial, keep in mind the walkthroughs and articles that already exist, and note down any additional content items that would need to be completed before creating the tutorial.
 
-# Grammar, formatting, and style
+## Grammar, formatting, and style
 
 Here are some language-specific rules that the Obol documentation follows. If you use a writing service like [Grammarly](https://www.grammarly.com/), most of these rules are turned on by default.
 
-### British English
+#### American English
 
-The Obol documentation portal is written in British English. 
+The Obol documentation portal is written in American English.
 
-### The Oxford comma
+#### The Oxford comma
 
 Follow each list of three or more items with a comma `,`:
 
@@ -86,64 +87,62 @@ Follow each list of three or more items with a comma `,`:
 | One, two, three, and four.    | One, two, three and four.    |
 | Henry, Elizabeth, and George. | Henry, Elizabeth and George. |
 
-### Acronyms
+#### Acronyms
 
 If you have to use an acronym, spell the full phrase first and include the acronym in parentheses `()` the first time it is used in each document. Exception: This generally isn't necessary for commonly-encountered acronyms like _EVM_, unless writing for a stand-alone article that may not be presented alongside project documentation.
 
 > Virtual Machine (VM), Decentralized Web (DWeb).
 
-## Formatting
+### Formatting
 
 How the Markdown syntax looks, and code formatting rules to follow.
 
-## Style
+### Style
 
 The following rules explain how we organize and structure our writing. The rules outlined here are in addition to the [rules](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md) found within the [Markdownlinter extension](https://github.com/DavidAnson/vscode-markdownlint).
 
-### Text
+#### Text
 
 The following rules apply to editing and styling text.
 
-#### Titles
+**Titles**
 
-1. All titles follow sentence structure. Only _names_ and _places_ are capitalized, along with the first letter of the title. All other letters are lower-case:
+1.  All titles follow sentence structure. Only _names_ and _places_ are capitalized, along with the first letter of the title. All other letters are lower-case:
 
-   ```markdown
-   ## This is a title
+    ```markdown
+    ## This is a title
 
-   ### Only capitalize names and places
+    ### Only capitalize names and places
 
-   #### The capital city of France is Paris
-   ```
+    #### The capital city of France is Paris
+    ```
+2.  Every article starts with a _front-matter_ title and description:
 
-2. Every article starts with a _front-matter_ title and description:
+    ```markdown
+    ---
+    title: Example article
+    description: This is a brief description that shows up in link teasers in services like Twitter and Slack.
+    ---
 
-   ```markdown
-   ---
-   title: Example article
-   description: This is a brief description that shows up in link teasers in services like Twitter and Slack.
-   ---
+    ## This is a subtitle
 
-   ## This is a subtitle
+    Example body text.
+    ```
 
-   Example body text.
-   ```
+    In the above example `title:` serves as a `<h1>` or `#` tag. There is only ever one title of this level in each article.
+3.  Titles do not contain punctuation. If you have a question within your title, rephrase it as a statement:
 
-   In the above example `title:` serves as a `<h1>` or `#` tag. There is only ever one title of this level in each article.
+    ```markdown
+    <!-- This title is wrong. -->
 
-3. Titles do not contain punctuation. If you have a question within your title, rephrase it as a statement:
+    ## What is Charon?
 
-   ```markdown
-   <!-- This title is wrong. -->
+    <!-- This title is better. -->
 
-   ## What is Charon?
+    ## Charon explained
+    ```
 
-   <!-- This title is better. -->
-
-   ## Charon explained
-   ```
-
-#### Bold text
+**Bold text**
 
 Double asterisks `**` are used to define **boldface** text. Use bold text when the reader must interact with something displayed as text: buttons, hyperlinks, images with text in them, window names, and icons.
 
@@ -151,7 +150,7 @@ Double asterisks `**` are used to define **boldface** text. Use bold text when t
 In the **Login** window, enter your email into the **Username** field and click **Sign in**.
 ```
 
-#### Italics
+**Italics**
 
 Underscores `_` are used to define _italic_ text. Style the names of things in italics, except input fields or buttons:
 
@@ -170,7 +169,7 @@ Quotes or sections of quoted text are styled in italics and surrounded by double
 In the wise words of Winnie the Pooh _"People say nothing is impossible, but I do nothing every day."_
 ```
 
-#### Code blocks
+**Code blocks**
 
 Tag code blocks with the syntax of the core they are presenting:
 
@@ -180,7 +179,7 @@ Tag code blocks with the syntax of the core they are presenting:
     ```
 ````
 
-#### List items
+**List items**
 
 All list items follow sentence structure. Only _names_ and _places_ are capitalized, along with the first letter of the list item. All other letters are lowercase:
 
@@ -199,7 +198,7 @@ List items end with a period `.`, or a colon `:` if the list item has a sub-list
    2. Silmarillion.
    3. Letters from Father Christmas.
 
-##### Unordered lists
+**Unordered lists**
 
 Use the dash character `-` for un-numbered list items:
 
@@ -210,7 +209,7 @@ Use the dash character `-` for un-numbered list items:
 - Half a lime.
 ```
 
-#### Special characters
+**Special characters**
 
 Whenever possible, spell out the name of the special character, followed by an example of the character itself within a code block.
 
@@ -218,7 +217,7 @@ Whenever possible, spell out the name of the special character, followed by an e
 Use the dollar sign `$` to enter debug-mode.
 ```
 
-#### Keyboard shortcuts
+**Keyboard shortcuts**
 
 When instructing the reader to use a keyboard shortcut, surround individual keys in code tags:
 
@@ -228,19 +227,19 @@ Press `ctrl` + `c` to copy the highlighted text.
 
 The plus symbol `+` stays outside of the code tags.
 
-### Images
+#### Images
 
 The following rules and guidelines define how to use and store images.
 
-#### Storage location
+**Storage location**
 
 All images must be placed in the `/static/img` folder. For multiple images attributed to a single topic, a new folder within `/img/` may be needed.
 
-#### File names
+**File names**
 
 All file names are lower-case with dashes `-` between words, including image files:
 
-```text
+```
 concepts/
 ├── content-addressed-data.md
 ├── images
@@ -250,4 +249,4 @@ concepts/
 └── proof-of-spacetime.md
 ```
 
-_The framework and some information for this was forked from the original found on the [Filecoin documentation portal](https://docs.filecoin.io)_
+_The framework and some information for this was forked from the original found on the_ [_Filecoin documentation portal_](https://docs.filecoin.io)
