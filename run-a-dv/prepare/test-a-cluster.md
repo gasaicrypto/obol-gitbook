@@ -420,8 +420,7 @@ Default endpoint for validator and port is used at `127.0.0.1:3600`. This can be
 #### Example run
 
 ```sh
-docker run --network="charon-distributed-validator-node_dvnode" obolnetwork/charon:v1.2.0 alpha test validator \
-  --validator-api-address="lodestar:5064"
+charon alpha test validator
 ```
 
 ### Test MEV relay
@@ -472,8 +471,7 @@ The storage tests require `fio` to be installed on your machine. Read more about
 #### Example run
 
 ```sh
-docker run -u $(id -u):$(id -g) --rm -v "$(pwd):/opt/charon/test" obolnetwork/charon:v1.2.0 alpha test infra \
-  --disk-io-test-file-dir=/opt/charon/test
+charon alpha test infra
 ```
 
 
