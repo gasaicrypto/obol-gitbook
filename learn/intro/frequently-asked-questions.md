@@ -22,19 +22,21 @@ Charon alone uses negligible disk space of not more than a few MBs. However, if 
 
 {% tabs %}
 {% tab title="Minimum" %}
-| **CPU\***              | 1       | 2       |
-| ---------------------- | ------- | ------- |
-| **RAM**                | 2       | 16      |
-| **Storage**            | 100 MB  | 2 TB    |
-| **Internet Bandwidth** | 10 Mb/s | 10 Mb/s |
+|                        | Charon + VC | Beacon Node |
+| ---------------------- | ----------- | ----------- |
+| **CPU\***              | 1           | 2           |
+| **RAM**                | 2           | 16          |
+| **Storage**            | 100 MB      | 2 TB        |
+| **Internet Bandwidth** | 10 Mb/s     | 10 Mb/s     |
 {% endtab %}
 
 {% tab title="Recommended" %}
-| **CPU\***              | 2       | 4       |
-| ---------------------- | ------- | ------- |
-| **RAM**                | 3       | 24      |
-| **Storage**            | 100 MB  | 2 TB    |
-| **Internet Bandwidth** | 25 Mb/s | 25 Mb/s |
+|                        | Charon + VC | Beacon Node |
+| ---------------------- | ----------- | ----------- |
+| **CPU\***              | 2           | 4           |
+| **RAM**                | 3           | 24          |
+| **Storage**            | 100 MB      | 2 TB        |
+| **Internet Bandwidth** | 25 Mb/s     | 25 Mb/s     |
 {% endtab %}
 
 {% tab title="High # of Validators (>200)" %}
