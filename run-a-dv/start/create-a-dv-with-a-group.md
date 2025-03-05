@@ -1,6 +1,10 @@
-# Create a DV With a Group
+---
+description: >-
+  This quickstart guide will walk you through creating a Distributed Validator
+  Cluster with a number of other node operators.
+---
 
-This quickstart guide will walk you through creating a Distributed Validator Cluster with a number of other node operators.
+# Create a DV With a Group
 
 ### Pre-requisites[​](https://docs.obol.org/next/run/start/quickstart_group#pre-requisites) <a href="#pre-requisites" id="pre-requisites"></a>
 
@@ -35,7 +39,7 @@ Created ENR private key: .charon/charon-enr-private-key
 enr:-JG4QGQpV4qYe32QFUAbY1UyGNtNcrVMip83cvJRhw1brMslPeyELIz3q6dsZ7GblVaCjL_8FKQhF6Syg-O_kIWztimGAYHY5EvPgmlkgnY0gmlwhH8AAAGJc2VjcDI1NmsxoQKzMe_GFPpSqtnYl-mJr8uZAUtmkqccsAx7ojGmFy-FY4N0Y3CCDhqDdWRwgg4u
 ```
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 Please make sure to create a backup of the private key at `.charon/charon-enr-private-key` Be careful not to commit it to git! **If you lose this file you won't be able to take part in the DKG ceremony nor start the DV cluster successfully.**
 {% endhint %}
 
@@ -58,19 +62,13 @@ Before preparing the DappNode to take part in a Distributed Validator Cluster, y
 
 1.  Login to the DappNode Interface:
 
-
-
-    <figure><img src="https://docs.obol.org/img/dappnodeLogin.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
 2.  Click on the 'Stakers' tab on the left side, select an execution client (e.g. Geth) & consensus client (e.g. Lodestar) & click 'Apply changes'. This will start the syncing process which can take a number of hours.
 
-
-
-    <figure><img src="https://docs.obol.org/img/SelectClients.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
 3.  Once the clients are finished syncing, it should reflect on your 'Dashboard' as shown below.
 
-
-
-    <figure><img src="https://docs.obol.org/img/Dashboard.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
 
 **Install the Obol DappNode package**[**​**](https://docs.obol.org/next/run/start/quickstart_group#install-the-obol-dappnode-package)
 
@@ -81,41 +79,27 @@ With a fully synced Ethereum node now running on the DappNode, the below steps w
    * [Mainnet Repo](http://my.dappnode/installer/dnp/obol.dnp.dappnode.eth)
 2.  Copy the latest IPFS hash from the release details dropdown.
 
-
-
-    <figure><img src="https://docs.obol.org/img/DappnodeRepo.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 3.  Go back to DappNode Dashboard > Dappstore, select the 'Public' tab, and accept the terms & conditions before proceeding.
 
-
-
-    <figure><img src="https://docs.obol.org/img/PublicTab.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 4.  Paste the IPFS hash you copied from Github and click 'Search' (It may take a minute for the package to be found.) You will then be presented with the package installation page. Under the blue 'Install' button, click on 'Advanced Options' & toggle the button to 'Bypass only signed safe restriction'.
 
-
-
-    <figure><img src="https://docs.obol.org/img/BypassButton.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
 5.  Click 'Install' & in the config mode page > select new cluster & submit. (if you already have the config URL, you can select URL option.)
 
-
-
-    <figure><img src="https://docs.obol.org/img/InstallPackage.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 6.  Accept the terms & conditions and the install process will begin.
 
+    <figure><img src="../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
 
-
-    <figure><img src="https://docs.obol.org/img/TermsAndConditions.png" alt=""><figcaption></figcaption></figure>
-
-    <figure><img src="https://docs.obol.org/img/PackageInstalling.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (72).png" alt=""><figcaption></figcaption></figure>
 7.  You should now be able to see the Holesky Obol package under the 'Packages' tab. Click on the package to see important details.
 
-
-
-    <figure><img src="https://docs.obol.org/img/PackagesTab.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
 8.  Under the 'Info' tab, you will be see pre-generated ENRs, along with information such as the status of all five distributed validator clusters, their docker volumes & other menu options.
 
-
-
-    <figure><img src="https://docs.obol.org/img/GetENR.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (74).png" alt=""><figcaption></figcaption></figure>
 9. Select any of the ENRs listed that are not already in use. This ENR will be used in the next step.
 
 For Step 2 of the quickstart:
@@ -125,7 +109,57 @@ For Step 2 of the quickstart:
 {% endtab %}
 
 {% tab title="Sedge" %}
+**Installing Sedge**[**​**](http://localhost:3000/run/start/quickstart_group#installing-sedge)
 
+First you must install Sedge, please refer to the [official Sedge installation guide](https://docs.sedge.nethermind.io/docs/quickstart/install-guide) to do so.
+
+**Check the install was successful**[**​**](http://localhost:3000/run/start/quickstart_group#check-the-install-was-successful)
+
+Run the below command to check if your have successfully installed sedge in your computer.
+
+```
+sedge
+```
+
+Expected output:
+
+```sh
+A tool to allow deploying validators with ease.
+  Usage:
+    sedge [command]
+  Available Commands:
+    cli             Generate a node setup interactively
+    clients         List supported clients
+    deps            Manage dependencies
+    down            Shutdown sedge running containers
+    generate        Generate new setups according to selected options
+    help            Help about any command
+    import-key      Import validator keys
+    keys            Generate keystore folder
+    logs            Get running container logs
+    networks        List supported networks
+    run             Run services
+    show            Show useful information about sedge running containers
+    slashing-export Export slashing protection data
+    slashing-import Import slashing protection data
+    version         Print sedge version
+  Flags:
+    -h, --help               help for sedge
+        --log-level string   Set Log Level, e.g panic, fatal, error, warn, warning, info, debug, trace (default "info")
+  Use "sedge [command] --help" for more information about a command.
+```
+
+Create an ENR using charon:
+
+```sh
+# Use docker to create an ENR. Backup the file `.charon/charon-enr-private-key`.
+docker run --rm -v "$(pwd):/opt/charon" obolnetwork/charon:v1.2.0 create enr
+```
+
+For Step 2 of the quickstart:
+
+* Select the **Creator** tab if you are coordinating the creation of the cluster (this role holds no position of privilege in the cluster, it only sets the initial terms of the cluster that the other operators agree to).
+* Select the **Operator** tab if you are accepting an invitation to operate a node in a cluster, proposed by the cluster creator.
 {% endtab %}
 {% endtabs %}
 
@@ -141,19 +175,17 @@ Before starting the cluster creation process, you will need to collect an Ethere
 {% tab title="Launchpad" %}
 You will use the Launchpad to create an invitation, and share it with the operators. This video shows the flow within the [DV Launchpad](https://docs.obol.org/next/learn/intro/launchpad)
 
+{% embed url="https://www.youtube.com/watch?v=6pXASqjAQbs" %}
+
 The following are the steps for creating a cluster.
 
 1. Go to the [DV Launchpad](https://docs.obol.org/docs/dvl/intro#dv-launchpad-links)
 2.  Connect your wallet
 
-
-
-    <figure><img src="https://docs.obol.org/img/Guide01.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (75).png" alt=""><figcaption></figcaption></figure>
 3.  Select `Create a Cluster with a group` then `Get Started`.
 
-
-
-    <figure><img src="https://docs.obol.org/img/Guide02.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (76).png" alt=""><figcaption></figcaption></figure>
 4. Follow the flow and accept the advisories.
 5. Configure the Cluster
    1. Input the `Cluster Name` & `Cluster Size` (i.e. number of operators in the cluster). The threshold will update automatically, it shows the number of nodes that need to be functioning for the validator(s) to stay active.
@@ -168,9 +200,7 @@ The following are the steps for creating a cluster.
    3. Your `ENR`. Signing your ENR authorises the corresponding private key to act on your behalf in the cluster.
 8.  Share your cluster invite link with the operators. Following the link will show you a screen waiting for other operators to accept the configuration you created.
 
-
-
-    <figure><img src="https://docs.obol.org/img/Guide04.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (77).png" alt=""><figcaption></figcaption></figure>
 9. You can use the link to monitor how many of the operators have already signed their approval of the cluster configuration and submitted their ENR.
 
 Once every participating operator is ready, the next step is the distributed key generation amongst the operators.
@@ -217,25 +247,26 @@ Once every participating operator is ready, the next step is the distributed key
 
 Use the Launchpad or CLI to join the cluster configuration generated by the creator:
 
-### te a cluster or accept an invitation to a cluster <a href="#step-2-create-a-cluster-or-accept-an-invitation-to-a-cluster" id="step-2-create-a-cluster-or-accept-an-invitation-to-a-cluster"></a>
-
 {% tabs %}
 {% tab title="Launchpad" %}
 Your cluster creator needs to configure the cluster, and send you an invite URL link to join the cluster on the Launchpad. Once you've received the Launchpad invite link, you can begin the cluster acceptance process.
 
-1. Click on the DV launchpad link provided by the leader or creator. Make sure you recognise the domain and the person sending you the link, to ensure you are not being phished.
-2.  Connect your wallet using the Ethereum address provided to the leader.&#x20;
+{% embed url="https://www.youtube.com/watch?v=6pXASqjAQbs" %}
 
-    <figure><img src="https://docs.obol.org/img/Guide05.png" alt=""><figcaption></figcaption></figure>
+1. Click on the DV launchpad link provided by the leader or creator. Make sure you recognise the domain and the person sending you the link, to ensure you are not being phished.
+2.  Connect your wallet using the Ethereum address provided to the leader.\
+    &#x20;
+
+    <figure><img src="../../.gitbook/assets/image (81).png" alt=""><figcaption></figcaption></figure>
 3.  Review the operators addresses submitted and click `Get Started` to continue.\
     &#x20;
 
-    <figure><img src="https://docs.obol.org/img/Guide06.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (82).png" alt=""><figcaption></figcaption></figure>
 4. Review and accept the DV Launchpad terms & conditions and advisories.
 5.  Review the cluster configuration set by the creator and add your `ENR` that you generated in [step 1](https://docs.obol.org/next/run/start/quickstart_group#step-1-generate-an-enr).\
 
 
-    <figure><img src="https://docs.obol.org/img/Guide07.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (83).png" alt=""><figcaption></figcaption></figure>
 6. Sign the two transactions with your wallet, these are:
    * The config hash. This is a hashed representation of all of the details for this cluster.
    * Your own `ENR` This signature authorises the key represented by this ENR to act on your behalf in the cluster.
@@ -248,9 +279,12 @@ Once every participating operator is ready, the next step is the distributed key
 {% endtab %}
 
 {% tab title="CDVN" %}
-### Join the cluster prepared by the creator
+You'll receive the `cluster-definition.json` file created by the leader/creator. You should save it in the `.charon/` folder that was created initially. (Alternatively, you can use the `--definition-file` flag to override the default expected location for this file.)
 
-Use the Launchpad or CLI to join the cluster configuration generated by the creator:
+Once every participating operator is ready, the next step is the distributed key generation amongst the operators.
+
+* If you are not planning on operating a node, and were only configuring the cluster for the operators, your journey ends here. Well done!
+* If you are one of the cluster operators, continue to the next step.
 {% endtab %}
 {% endtabs %}
 {% endtab %}
