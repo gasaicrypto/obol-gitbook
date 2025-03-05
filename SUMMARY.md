@@ -119,7 +119,6 @@
 ## API
 
 * [What is this API?](api/what-is-this-api.md)
-* [Distributed Validators](api/distributed-validators.md)
 * [System](api/system.md)
 * [Metrics](api/metrics.md)
 * [Cluster Definition](api/cluster-definition.md)
