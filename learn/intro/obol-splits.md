@@ -13,7 +13,7 @@ Two key goals of validator reward management are:
 
 Without access to the consensus layer state in the EVM to check a validator's status or balance, and due to the incoming ether being from an irregular state transition, neither of these requirements are easily satisfiable.
 
-The following sections outline different contracts that can be composed to form a solution for one or both goals.
+The following sections outline different contracts that can be composed to form a solution for one or both goals. The same contracts are being leveraged to enable claiming rewards via launchpad (read more about it [**here**](http://localhost:3000/next/run/running/claim-rewards)).
 
 ### Withdrawal Recipients[​](https://docs.obol.org/learn/intro/obol-splits#withdrawal-recipients) <a href="#withdrawal-recipients" id="withdrawal-recipients"></a>
 
