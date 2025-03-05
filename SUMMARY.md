@@ -62,10 +62,10 @@
   * [Overview](advanced-and-troubleshooting/security/overview.md)
   * [Centralization Risks and Mitigation](advanced-and-troubleshooting/security/risks.md)
   * [Obol Bug Bounty Program](advanced-and-troubleshooting/security/bug-bounty.md)
+  * [Smart Contract Audit](advanced-and-troubleshooting/security/smart-contract-audit.md)
   * [Software Development at Obol](advanced-and-troubleshooting/security/ev-assessment.md)
   * [Charon Threat Model](advanced-and-troubleshooting/security/threat_model.md)
   * [Contacts](advanced-and-troubleshooting/security/contact.md)
-  * [Smart Contract Audit](advanced-and-troubleshooting/security/smart-contract-audit.md)
 
 ## Community & Governance
 
