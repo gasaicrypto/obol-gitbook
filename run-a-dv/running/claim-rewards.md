@@ -41,7 +41,7 @@ We are constantly improving the user experience. Below are some edge cases to av
 
 <figure><img src="../../.gitbook/assets/image (87).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In this scenario, someone else (a splitter or non-splitter address) has already distributed rewards to the Split Main (e.g., 0.12 ETH). However, your validators (4 in this case) have earned an additional 0.2 ETH in rewards. Your total effective claimable balance is 0.032 ETH, which you can claim using the `Claim All` button.
 
