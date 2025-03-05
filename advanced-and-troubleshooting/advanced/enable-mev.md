@@ -36,8 +36,6 @@ The following flags need to be configured on your chosen consensus client. A Fla
 
 {% tabs %}
 {% tab title="Teku" %}
-
-
 Teku can communicate with a single relay directly:
 
 ```
@@ -74,7 +72,7 @@ prysm beacon-chain --http-mev-relay="https://0xac6e77dfe25ecd6110b8e780608cce0da
 {% endtab %}
 
 {% tab title="Nimbus" %}
-imbus can communicate with a single relay directly:
+Nimbus can communicate with a single relay directly:
 
 ```
 nimbus_beacon_node \
