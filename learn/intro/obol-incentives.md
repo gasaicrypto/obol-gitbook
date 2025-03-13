@@ -34,8 +34,7 @@ You can participate by:
 
 ### Is existing stake eligible?
 
-* Stake deposited after January 13th, 2025, is eligible for rewards.
-* Exception: Stake deposited directly on DVs (outside of staking protocols) is eligible regardless of when it was deposited.
+* All stake deposited after January 13th, 2025, is eligible for rewards, with some exceptions including all stake directly natively staked on Obol DVs (outside of stkaing protocols) is eligible regardless of when it was deposited.
 
 ***
 
