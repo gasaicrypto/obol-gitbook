@@ -34,7 +34,8 @@ You can participate by:
 
 ### Is existing stake eligible?
 
-* All stake deposited after January 13th, 2025, is eligible for rewards, with the exception that all stake directly natively staked on Obol DVs (outside of staking protocols) is eligible regardless of when it was deposited.
+* If you are staking yourself directlh on Obol DVs and/or Squad Staking, your stake is 100% eligible for rewards.
+* If you are staking with a partner protocol, it's best to review the details of that partner at Obol.org/incentives. Only ETH staked on Obol DVs is qualified for Obol Incentives and not all partners are created equal.
 
 ***
 
