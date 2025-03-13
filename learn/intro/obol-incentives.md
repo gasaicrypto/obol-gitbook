@@ -12,7 +12,9 @@ OBOL Incentives offer an opportunity to **earn OBOL Token incentives** for staki
 * Incentives **begin accruing on March 24th, 2025.**
 * **Claiming** will be possible shortly thereafter.
 
-Each week, **1/52 of the 12.5M OBOL** will be distributed (**\~240,385 OBOL per week**).\
+Each week, **1/52 of the 12.5M OBOL** will be distributed (**\~240,385 OBOL per week**).
+
+\
 If you are staking with a partner, incentives must be claimed participating partner UI frontends or via the [DV Launchpad](https://launchpad.obol.org) if you are running your own distributed validator.
 
 ***
