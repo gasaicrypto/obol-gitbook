@@ -61,7 +61,7 @@ OBOL incentives are based on staking rewards earned by validators (pubkeys). Per
 
 ***
 
-### How do you ensure caluclations for OBOL Incentives are made properly?
+### How do you ensure calculations for OBOL Incentives are made properly?
 
 Our rewards calculation and distribution system is built for accuracy, transparency, and security. We use Miga Labs' indexer to reliably track validator rewards, and all critical data—such as total rewards, split configurations, and depositor allocations—is verified on-chain and made publicly available for cross-verification. To further safeguard the integrity of the program, our data validation systems detect TVL discrepancies, ensuring partners cannot inflate their staking amounts. Even in cases where a partner misreports depositor splits, it only affects their own internal distribution and does not compromise the total rewards allocation or the fairness of the system.
 
