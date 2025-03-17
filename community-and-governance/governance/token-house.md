@@ -52,7 +52,7 @@ Below are listed types of Token House Proposals. Each has a two-week review peri
 
 ### Weeks 1-2: Feedback and Review
 
-All proposal types should be posted to the Obol Forum for review. Proposal authors are expected to respond to feedback from Obol Collective members and Delegates.
+All proposal types should be posted to the [Obol Forum](https://community.obol.org/) for review. Proposal authors are expected to respond to feedback from Obol Collective members and Delegates.
 
 Proposals should be:
 
@@ -70,9 +70,13 @@ After receiving the required approvals, the author should update the proposal ti
 
 If a proposal author does not get explicit approval or wants more time for feedback, they should not include their proposal in the Voting Cycle Roundup thread. Instead, they should continue to seek community feedback and submit an updated proposal in the next voting cycle.
 
-### Week 3: Voting
+### Week 3: Publish a Proposal Onchain and Voting
 
-During the third week, Delegates (including OBOL Token holders who have self-delegated) vote on proposals via the [Obol Governance Portal](https://vote.obol.org/). All proposals are included in voting if they were added to the Voting Cycle Roundup thread before the deadline and have the approval of four top-100 delegates.
+During Week 3, a top-100 delegate must publish the proposal on the [Obol Governance Platform](https://www.tally.xyz/gov/obol).\
+After publication, there is a 24-hour voting delay, during which the proposal can be canceled if necessary. The voting delay is the amount of time between when a proposal is submitted and when it goes up for voting. The delay gives token holders time to delegate their voting power before the vote starts or buy more votes. Governor takes a snapshot of all the voting power at the start of voting. Read more [here](https://docs.tally.xyz/set-up-and-technical-documentation/deploying-daos/how-to-pick-governor-parameters#how-to-pick-the-voting-delay).
+
+\
+After the 24 hours, Delegates (including OBOL Token holders who have self-delegated) vote on proposals via the [Obol Governance Portal](https://vote.obol.org/). All proposals are included in voting if they were added to the Voting Cycle Roundup thread before the deadline and have the approval of four top-100 delegates.
 
 A governance proposal is **approved** if it satisfies two requirements:
 
@@ -86,6 +90,10 @@ If a proposal is submitted for a vote and does not pass, the proposal will not b
 1. Create a new proposal thread on the Forum.
 2. Include a link to the first proposal that did not pass.
 3. Clearly identify what has changed in the new proposal.
+
+### Timelock Delay
+
+After the voting period ends, if the proposal passes, there will be a 5-day timelock delay. The timelock delay is the minimum time required between the approval and execution of a proposal. This delay gives stakeholders a final opportunity to review and react before the proposal is implemented. Read more [here](token-house.md#implementation).
 
 ## Implementation
 
