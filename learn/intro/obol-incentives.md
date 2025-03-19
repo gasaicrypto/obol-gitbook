@@ -26,7 +26,7 @@ You can participate by:
 1. **Staking through Staking Partners**
    * For the latest list of partners that qualify for OBOL Incentives, visit [https://obol.org/incentives](https://obol.org/incentives).
 2. **Running Your Own DV Cluster**
-   * Use the [DV Launchpad](https://launchpad.obol.org) to create and manage your own DV cluster, e.g., using a [DappNode](https://dappnode.com/) or other hardware.
+   * Use the [DV Launchpad](https://launchpad.obol.org) to create and manage your own DV cluster, e.g., using a [DappNode](https://dappnode.com/) or other hardware. Please note, you must opt into [1% for Decentralization](https://blog.obol.org/1-percent-for-decentralisation/) to qualify for Obol Incentives.&#x20;
    * This method directly supports Ethereum’s decentralization while earning OBOL incentives.
    * Visit the official Obol Discord to find squad mates.
 
