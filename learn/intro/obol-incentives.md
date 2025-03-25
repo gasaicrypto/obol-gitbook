@@ -14,8 +14,9 @@ OBOL Incentives offer an opportunity to **earn OBOL Token incentives** for staki
 
 Each week, **1/52 of the 12.5M OBOL** will be distributed (**\~240,385 OBOL per week**).
 
-\
-If you are staking with a partner, incentives must be claimed participating partner UI frontends or via the [DV Launchpad](https://launchpad.obol.org) if you are running your own distributed validator.
+
+
+If you are staking with a partner, incentives will either be claimed via the participating partner UI frontends or via the [DV Launchpad](https://launchpad.obol.org/)
 
 ***
 
@@ -63,7 +64,7 @@ OBOL incentives are based on staking rewards earned by validators (pubkeys). Per
 
 ### How do you ensure calculations for OBOL Incentives are made properly?
 
-Our rewards calculation and distribution system is built for accuracy, transparency, and security. We use Miga Labs' indexer to reliably track validator rewards, and all critical data—such as total rewards, split configurations, and depositor allocations—is verified on-chain and made publicly available for cross-verification. To further safeguard the integrity of the program, our data validation systems detect TVL discrepancies, ensuring partners cannot inflate their staking amounts. Even in cases where a partner misreports depositor splits, it only affects their own internal distribution and does not compromise the total rewards allocation or the fairness of the system.
+Our rewards calculation and distribution system is built for accuracy, transparency, and security. We use Miga Labs' indexer to reliably track validator rewards, and all critical data—such as total rewards, split configurations, and depositor allocations—is verified on-chain and made publicly available for cross-verification. In cases where a partner misreports depositor splits, it only affects their own internal distribution and does not compromise the total rewards allocation or the fairness of the system.
 
 ***
 
