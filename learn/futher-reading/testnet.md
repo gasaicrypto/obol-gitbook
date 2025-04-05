@@ -70,7 +70,7 @@ Official report [available here](https://obol.org/lido_obol_2.pdf). Our testing 
 
 ### Lido Testnet Wave 1 - Pilot
 
-Offical report [available here](https://obol.org/lido_obol_1.pdf).Gathered key metrics from our Lido clusters, benchmarking these metrics against other industry players, showing strong results and reaffirming our confidence in the future of the technology.
+Official report [available here](https://obol.org/lido_obol_1.pdf).Gathered key metrics from our Lido clusters, benchmarking these metrics against other industry players, showing strong results and reaffirming our confidence in the future of the technology.
 
 **Participants:** Professional node operators: Hashquark, CryptoManufaktur, Nethermind, Simply Staking, DSRV, Kukis Global, Chorus One, Staking Facilities, Blockscape, Everstake, Stakely.
 
